@@ -64,7 +64,7 @@ onMounted( async () => {
                     </div>
 
                     <div class="text-white/90 text-sm mt-2" x-data="{copy:false}">
-                        <span x-on:click="copy=true" class="copybtn underline cp" :data-clipboard-text="url" x-text="copy ? 'Link Copied' : 'Copy Link'"></span>
+                        <span x-on:click="copy=true" class="copybtn underline cursor-pointer" :data-clipboard-text="url" x-text="copy ? 'Link Copied' : 'Copy Link'"></span>
                         <span class="mx-2">|</span>
                         <NuxtLink to="/" class="underline">Create your own test.</NuxtLink>
                     </div>

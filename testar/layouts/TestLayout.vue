@@ -32,7 +32,7 @@ onMounted( async () => {
             </li>
         </ul>
 
-        <IconsBars class="sm:hidden cp" :color="'fill-neutral-400'" :size="27" x-on:click="openMenu = !openMenu" />
+        <IconsBars class="sm:hidden cursor-pointer" :color="'fill-neutral-400'" :size="27" x-on:click="openMenu = !openMenu" />
 
         <div class="flex items-center mb-1 sm:mb-auto">
             <div class="actions">

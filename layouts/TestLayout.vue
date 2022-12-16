@@ -173,7 +173,7 @@ onMounted( async () => {
                 </li>
             </ul>
 
-            <IconsBars v-if="!test.published" class="sm:hidden cp" :color="'fill-neutral-400'" :size="27" x-on:click="openMenu = !openMenu" />
+            <IconsBars v-if="!test.published" class="sm:hidden cursor-pointer" :color="'fill-neutral-400'" :size="27" x-on:click="openMenu = !openMenu" />
 
             <span v-else></span>
 

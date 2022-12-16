@@ -45,7 +45,7 @@ const search = async (val: string) => {
             <div v-if="openSearch" class="absolute top-full left-0 bg-white/[.99] z-[9999] w-full rounded-md border mt-1.5 shadow-sm">
                 <div class="flex items-center justify-between px-2 py-1">
                     <p class="text-neutral-500/60 text-sm font-semibold">Search Results</p>
-                    <IconsClose @click="openSearch = false" :color="'fill-neutral-400/80'" :size="23" class="cp" />
+                    <IconsClose @click="openSearch = false" :color="'fill-neutral-400/80'" :size="23" class="cursor-pointer" />
                 </div>
 
                 <div>

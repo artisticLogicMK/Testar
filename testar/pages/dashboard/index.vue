@@ -200,15 +200,15 @@ const { data: p } = await useFetch('/api/getUser', {
                   <div class="flex justify-between text-slate-400/80 text-xl">
                       <IconsLink
                         @click="copyLink(test.link)"
-                        class="cp" :color="'fill-neutral-400/80 active:fill-cyan-400'" :size="22"
+                        class="cursor-pointer" :color="'fill-neutral-400/80 active:fill-cyan-400'" :size="22"
                       />
                       <IconsStar
                         @click="starTest(test.id, test.starred, i)"
-                        class="cp" :color="test.starred ? 'fill-yellow-400/90' : 'fill-neutral-400/80'" :size="22"
+                        class="cursor-pointer" :color="test.starred ? 'fill-yellow-400/90' : 'fill-neutral-400/80'" :size="22"
                       />
                       <IconsTrash
                         @click="removeTest(test.id)"
-                        class="cp" :color="'fill-neutral-400/80'" :size="22"
+                        class="cursor-pointer" :color="'fill-neutral-400/80'" :size="22"
                       />
                   </div>
                 </div>

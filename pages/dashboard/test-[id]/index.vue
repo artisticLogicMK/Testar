@@ -188,7 +188,7 @@ const storagePrefix = spbStorageUrl
 
                         <input
                             @input="uploadCover($event.target.files[0])"
-                            accept=".png, .jpg, .jpeg, .svg" type="file" id="cover" class="relative z-10 appearance-none h-full w-full border-none file:bg-transparent file:border-none file:text-transparent text-transparent bg-transparent cp"
+                            accept=".png, .jpg, .jpeg, .svg" type="file" id="cover" class="relative z-10 appearance-none h-full w-full border-none file:bg-transparent file:border-none file:text-transparent text-transparent bg-transparent cursor-pointer"
                         >
                     </label>
                 </div>
@@ -204,7 +204,7 @@ const storagePrefix = spbStorageUrl
             <div class="cols">
                 <i
                     @click="test.specify_time = !test.specify_time"
-                    class="la la-toggle-on cp text-5xl"
+                    class="la la-toggle-on cursor-pointer text-5xl"
                     :class="test.specify_time ? 'text-cyan-400' : 'la-flip-horizontal text-neutral-300'"
                 ></i>
                 
@@ -250,7 +250,7 @@ const storagePrefix = spbStorageUrl
             <div class="cols">
                 <i
                     @click="test.see_score = !test.see_score"
-                    class="la la-toggle-on cp text-5xl"
+                    class="la la-toggle-on cursor-pointer text-5xl"
                     :class="test.see_score ? 'text-cyan-400' : 'la-flip-horizontal text-neutral-300'"
                 ></i>
             </div>
@@ -266,7 +266,7 @@ const storagePrefix = spbStorageUrl
             <div class="cols">
                 <i
                     @click="test.see_pass = !test.see_pass"
-                    class="la la-toggle-on cp text-5xl"
+                    class="la la-toggle-on cursor-pointer text-5xl"
                     :class="test.see_pass ? 'text-cyan-400' : 'la-flip-horizontal text-neutral-300'"
                 ></i>
 
@@ -291,7 +291,7 @@ const storagePrefix = spbStorageUrl
             <div class="cols">
                 <i
                     @click="test.fill_info = !test.fill_info"
-                    class="la la-toggle-on cp text-5xl"
+                    class="la la-toggle-on cursor-pointer text-5xl"
                     :class="test.fill_info ? 'text-cyan-400' : 'la-flip-horizontal text-neutral-300'"
                 ></i>
 
@@ -388,7 +388,7 @@ const storagePrefix = spbStorageUrl
             <div class="cols">
                 <i
                     @click="test.allow_close = !test.allow_close"
-                    class="la la-toggle-on cp text-5xl"
+                    class="la la-toggle-on cursor-pointer text-5xl"
                     :class="test.allow_close ? 'text-cyan-400' : 'la-flip-horizontal text-neutral-300'"
                 ></i>
 

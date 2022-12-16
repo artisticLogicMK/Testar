@@ -227,7 +227,7 @@ const slideInUp = (el) => {
                                             answers.current = currentIndex
                                             nextBtn = true
                                         }"
-                                        class="flex items-start group cp mb-7"
+                                        class="flex items-start group cursor-pointer mb-7"
                                     >
                                         <div
                                             class="shrink-0 flex items-center justify-center w-9 h-9 border-[3px] rounded-full text-2xl font-bold mr-2 duration-200 group-active:scale-125 capitalize"

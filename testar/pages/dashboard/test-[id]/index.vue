@@ -86,7 +86,7 @@ onMounted(() => {
                 <p class="descri">Note that each of your questions carries the same number of points or percentage. If you ask five questions, then the point per question is 100 divided by 5, which is 20; this signifies that each question has a weighted average of 20% of the total 100%. </p>
             </div>
             <div class="cols">
-                <i class="la la-toggle-on cp text-cyan-400 text-5xl"></i>
+                <i class="la la-toggle-on cursor-pointer text-cyan-400 text-5xl"></i>
             </div>
         </div>
 
@@ -96,7 +96,7 @@ onMounted(() => {
                 <p class="title">Tell the participants whether they passed or failed the test?</p>
             </div>
             <div class="cols">
-                <i class="la la-toggle-on cp text-cyan-400 text-5xl"></i>
+                <i class="la la-toggle-on cursor-pointer text-cyan-400 text-5xl"></i>
 
                 <div>
                     <p class="descri">Set a passing score for the test.</p>
@@ -115,7 +115,7 @@ onMounted(() => {
                 <p class="descri">If off, the test will be taken anonymously.</p>
             </div>
             <div class="cols">
-                <i class="la la-toggle-on cp text-cyan-400 text-5xl"></i>
+                <i class="la la-toggle-on cursor-pointer text-cyan-400 text-5xl"></i>
 
                 <div>
                     <p class="descri mb-2">Select information of people to collect. Minimum of 3.</p>
@@ -183,7 +183,7 @@ onMounted(() => {
                 <p class="descri">When the specified time is reached, the test will be automatically closed.</p>
             </div>
             <div class="cols">
-                <i class="la la-toggle-on cp text-cyan-400 text-5xl"></i>
+                <i class="la la-toggle-on cursor-pointer text-cyan-400 text-5xl"></i>
                 <input type="datetime-local" class="w-full" value="untitled test">
             </div>
         </div>

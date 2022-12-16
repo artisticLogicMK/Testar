@@ -277,19 +277,19 @@ const { data: p } = await useFetch('/api/getUser', {
                           <IconsLink
                             id="link"
                             :data-clipboard-text="test.published ? takeTestUrl+test.link : 'The test is not published.'"
-                            class="copybtn cp" :color="'fill-neutral-400/80 group-active:fill-cyan-400'" :size="22"
+                            class="copybtn cursor-pointer" :color="'fill-neutral-400/80 group-active:fill-cyan-400'" :size="22"
                           />
                         </div>
 
                         <div @click.stop="starTest(test.id, test.starred, i)" class="tran active:scale-125">
                           <IconsStar
-                            class="cp" :color="test.starred ? 'fill-yellow-400/90' : 'fill-neutral-400/80'" :size="22"
+                            class="cursor-pointer" :color="test.starred ? 'fill-yellow-400/90' : 'fill-neutral-400/80'" :size="22"
                           />
                         </div>
                         
                         <div @click.stop="removeTest(test.id)" class="tran active:scale-125">
                           <IconsTrash
-                            class="cp" :color="'fill-neutral-400/80'" :size="22"
+                            class="cursor-pointer" :color="'fill-neutral-400/80'" :size="22"
                           />
                         </div>
                     </div>

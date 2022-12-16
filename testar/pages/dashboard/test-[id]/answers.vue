@@ -52,7 +52,7 @@ definePageMeta({
                         </td>
                         <td class="hidden xsm:table-cell">23m</td>
                         <td class="relative">
-                            <IconsEllipsesH class="absolute top-2.5 active:scale-x-125 cp" :color="'fill-neutral-500'" :size="25" />
+                            <IconsEllipsesH class="absolute top-2.5 active:scale-x-125 cursor-pointer" :color="'fill-neutral-500'" :size="25" />
                         </td>
                     </tr>
                 </tbody>
@@ -66,7 +66,7 @@ definePageMeta({
                 
                 <div class="relative h-[95vh] overflow-auto bg-white inline-block border rounded-md p-3 w-fit text-start shadow-md my-3 mx-2">
                     
-                    <i class="la la-times absolute top-1 right-3 text-neutral-500 text-xl cp active:scale-125"></i>
+                    <i class="la la-times absolute top-1 right-3 text-neutral-500 text-xl cursor-pointer active:scale-125"></i>
 
                     <p class="text-sm text-nenutral-400 font-semibold">Participant Info</p>
 

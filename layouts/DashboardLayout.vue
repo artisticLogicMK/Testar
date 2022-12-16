@@ -70,10 +70,10 @@ onMounted(() => {
 
 
         <div class="flex items-center text-white/80" x-data="{aMenu: false, nMenu: false}">
-            <IconsSearch class="sm:hidden cp" :color="'fill-white/80'" :size="28" x-on:click="searchOpen = true" />
+            <IconsSearch class="sm:hidden cursor-pointer" :color="'fill-white/80'" :size="28" x-on:click="searchOpen = true" />
             
             
-            <div class="relative cp">
+            <div class="relative cursor-pointer">
                 <IconsBell class="mx-2" :color="'fill-white/80'" :size="28" />
                 <span class="absolute -top-1.5 right-0 flex justify-center items-center w-5 h-5 bg-cyan-400 text-white text-xs font-semibold px-1 py-0.5 rounded-full shadow-md">4</span>
 
@@ -83,7 +83,7 @@ onMounted(() => {
             </div>
 
 
-            <div class="relative rounded-full bg-white/[.15] w-9 h-9 flex items-center justify-center text-xl leading-none ml-1 border border-transparent hover:border-white cp" x-on:click="aMenu = !aMenu">
+            <div class="relative rounded-full bg-white/[.15] w-9 h-9 flex items-center justify-center text-xl leading-none ml-1 border border-transparent hover:border-white cursor-pointer" x-on:click="aMenu = !aMenu">
                 <IconsUser :color="'fill-white/80'" :size="23" />
 
                 <div class="authMenu absolute top-full right-0 z-[9999] max-w[250px] bg-cyan-400/80 backdrop-blur-sm rounded-md mt-1.5 duration-300" x-show="aMenu" x-on:mouseleave="aMenu = false" x-transition>

@@ -18,14 +18,14 @@
 
 
         <div class="flex items-center text-white/80">
-            <IconsSearch class="sm:hidden cp" :color="'fill-white/80'" :size="28" x-on:click="searchOpen = true" />
+            <IconsSearch class="sm:hidden cursor-pointer" :color="'fill-white/80'" :size="28" x-on:click="searchOpen = true" />
             
-            <div class="relative cp">
+            <div class="relative cursor-pointer">
                 <IconsBell class="mx-2" :color="'fill-white/80'" :size="28" />
                 <span class="absolute -top-1.5 right-0 flex justify-center items-center bg-cyan-400 text-white text-xs font-semibold px-1 py-0.5 rounded-full shadow-md">47</span>
             </div>
 
-            <div class="rounded-full bg-white/[.15] w-9 aspect-square flex items-center justify-center text-xl leading-none ml-1 cp">A</div>
+            <div class="rounded-full bg-white/[.15] w-9 aspect-square flex items-center justify-center text-xl leading-none ml-1 cursor-pointer">A</div>
         </div>
        
     </NuxtLayout>

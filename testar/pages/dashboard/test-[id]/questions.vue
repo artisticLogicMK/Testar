@@ -26,7 +26,7 @@ definePageMeta({
 
                             <IconsClose
                                 x-on:click="openQ = false"
-                                :color="'fill-neutral-600'" :size="35" class="ml-1 md:hidden cp"
+                                :color="'fill-neutral-600'" :size="35" class="ml-1 md:hidden cursor-pointer"
                             />
                         </div>
                     </div>
@@ -123,7 +123,7 @@ definePageMeta({
 </template>
 
 <style>
-.qlist{@apply flex items-center bg-white py-2 px-2 border-b rounded-md mb-2 cp duration-300 hover:shadow-md }
+.qlist{@apply flex items-center bg-white py-2 px-2 border-b rounded-md mb-2 cursor-pointer duration-300 hover:shadow-md }
 .qlist div{@apply grow truncate }
 .qlist div p{@apply truncate text-sm text-neutral-500/80 font-semibold }
 
@@ -133,5 +133,5 @@ definePageMeta({
 
 .options .letters{@apply text-neutral-500/50 border-[3px] rounded-full text-2xl font-bold px-2 border-neutral-500/50 hover:bg-neutral-100/80 duration-300 mr-2}
 .options .letters.active{@apply border-cyan-400 text-cyan-400 }
-.options .type{@apply bg-neutral-100 text-neutral-500 border text-sm font-semibold rounded-sm px-2 py-1 mr-2 hover:bg-neutral-200 cp}
+.options .type{@apply bg-neutral-100 text-neutral-500 border text-sm font-semibold rounded-sm px-2 py-1 mr-2 hover:bg-neutral-200 cursor-pointer}
 </style>

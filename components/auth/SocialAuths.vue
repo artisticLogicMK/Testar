@@ -23,5 +23,5 @@ defineProps(['authMode'])
 </template>
 
 <style>
-.socials{ @apply cp text-center duration-200 hover:scale-125 active:scale-100 }
+.socials{ @apply cursor-pointer text-center duration-200 hover:scale-125 active:scale-100 }
 </style>

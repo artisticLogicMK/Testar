@@ -123,7 +123,7 @@ onMounted(() => {
 
                 <div class="absolute left-0 top-0 w-full text-end px-4 pt-2">
                     <div
-                        class="inline-block rounded-full hover:bg-neutral-100 p-0.5 cp"
+                        class="inline-block rounded-full hover:bg-neutral-100 p-0.5 cursor-pointer"
                         @click="() => {
                             closeAuthModal()
                             $emit('closeAuth')

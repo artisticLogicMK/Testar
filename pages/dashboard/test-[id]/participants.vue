@@ -86,7 +86,7 @@ onMounted( async () => {
                         </td>
 
                         <td class="relative">
-                            <IconsEllipsesH @click="participantInfo = p.data" class="absolute top-2.5 active:scale-x-125 cp" :color="'fill-neutral-500'" :size="25" />
+                            <IconsEllipsesH @click="participantInfo = p.data" class="absolute top-2.5 active:scale-x-125 cursor-pointer" :color="'fill-neutral-500'" :size="25" />
                         </td>
                     </tr>
                 </tbody>

@@ -219,7 +219,7 @@ const slideUpSelf = (el) => {
                             Questions
 
                             <div class="group ml-1 inline-block">
-                                <IconsQuestionMark :color="'fill-neutral-400'" :size="22" class="-mt-0.5 cp" />
+                                <IconsQuestionMark :color="'fill-neutral-400'" :size="22" class="-mt-0.5 cursor-pointer" />
 
                                 <div class="absolute top-full left-0 min-w-[250px] max-w-[300px] bg-white border rounded-md p-2 text-sm text-neutral-500 font-normal shadow-md hidden group-hover:block">
                                     Questions are ordered from old(top) to new(bottom); you can re-order them by dragging a question by the icon on the right side.
@@ -238,7 +238,7 @@ const slideUpSelf = (el) => {
 
                             <IconsClose
                                 @click="openQ = false"
-                                :color="'fill-neutral-600'" :size="35" class="ml-1 md:hidden cp"
+                                :color="'fill-neutral-600'" :size="35" class="ml-1 md:hidden cursor-pointer"
                             />
                         </div>
                     </div>
@@ -259,7 +259,7 @@ const slideUpSelf = (el) => {
                                     <p>{{q.text.substring(0, 50)}}</p>
                                 </div>
 
-                                <div class="group shrink-0 mx-1 cp">
+                                <div class="group shrink-0 mx-1 cursor-pointer">
                                     <IconsTrash @click.stop="delQuestion(q.id)" :color="'fill-neutral-400/80 group-hover:fill-red-400'" :size="25" />
                                 </div>
                             </div>
@@ -400,7 +400,7 @@ const slideUpSelf = (el) => {
 </template>
 
 <style>
-.qlist{@apply flex items-center bg-white py-2 px-2 border-b rounded-md mb-2 cp hover:duration-200 hover:shadow-md }
+.qlist{@apply flex items-center bg-white py-2 px-2 border-b rounded-md mb-2 cursor-pointer hover:duration-200 hover:shadow-md }
 .qlist div:first-child{@apply grow truncate }
 .qlist div:first-child p{@apply truncate text-sm text-neutral-500/80 font-semibold }
 
@@ -411,5 +411,5 @@ const slideUpSelf = (el) => {
 .options{@apply mb-7 }
 .options .letters{@apply text-neutral-300 border-[3px] rounded-full text-2xl font-bold px-2 border-neutral-300 hover:bg-neutral-100/80 duration-300 mr-2}
 .options .letters.active{@apply border-cyan-400 text-cyan-400 }
-.options .type{@apply bg-neutral-100 text-neutral-500 border text-sm font-semibold rounded-sm px-2 py-1 mr-2 hover:bg-neutral-200 cp}
+.options .type{@apply bg-neutral-100 text-neutral-500 border text-sm font-semibold rounded-sm px-2 py-1 mr-2 hover:bg-neutral-200 cursor-pointer}
 </style>
