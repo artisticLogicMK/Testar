@@ -11,6 +11,7 @@ const user = useSupabaseUser()
 const mountSlot = ref<boolean>(false)
 
 onMounted(() => {
+    //if user has signed in
     watchEffect(() => {
         if (user.value) navigateTo('/dashboard')
     })

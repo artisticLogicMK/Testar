@@ -36,6 +36,7 @@ const nextBtn = ref(false)
 const endBtn = ref(false)
 
 
+//go to next question
 const nextQuestion = () => {
     currentIndex.value += 1
     currentQuestion.value = questions.value[currentIndex.value]
@@ -44,6 +45,8 @@ const nextQuestion = () => {
     window.scrollTo(0, 0);
 }
 
+
+//final question - end the test
 const endTest = async (timeEnded = false) => {
     nextBtn.value = false
     endBtn.value = true
@@ -73,6 +76,7 @@ onMounted( async () => {
     participant.value = data
     answers.value = participant.value.answers
 
+    //fetch test
     const { data: test } = await supabase.from('tests')
         .select('id, title, timeframe, pass_range, see_score, see_pass, specify_time')
         .eq('uuid', data.test_uuid)
@@ -147,7 +151,7 @@ onMounted( async () => {
         }, { deep: true })
 
 
-        //watch for changes in participant data
+        //watch for changes in participant data n update
         watch(() => participant.value, async (newVal, oldVal) => {
         const { data, error } = await supabase.from('participants')
             .update({

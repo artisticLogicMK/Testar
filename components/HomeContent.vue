@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import gsap from 'gsap'
-
 const mountAuthModal = ref<boolean | string>(false)
 
 const showAuthModal = (mode: string): void => {
     mountAuthModal.value = mode === 'signup' ? 'signup' : 'login'
 }
 
-const closeAuthModal = () => {
+const closeAModal = () => {
     setTimeout(() => mountAuthModal.value = false, 1400)
 }
 
@@ -63,7 +61,7 @@ const fadeIn = (el: HTMLElement) => {
         <AuthMain
             :authMode="mountAuthModal"
             v-if="mountAuthModal"
-            @closeAuth="closeAuthModal"
+            @closeAuth="closeAModal"
         />
 
 </template>

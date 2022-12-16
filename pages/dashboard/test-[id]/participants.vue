@@ -5,7 +5,7 @@ definePageMeta({
   middleware: ['authenticated', 'test-exists']
 })
 
-const { id } = useRoute().params
+const { id } = useRoute().params //get test id ftom param
 const supabase = useSupabaseClient() //init spb client
 
 const state = store()
@@ -19,6 +19,7 @@ const questionCount = ref(null)
 const participantInfo = ref(null)
 
 onMounted( async () => {
+    //fetch participants
     const { data, error } = await supabase.from('participants').select()
         .eq('test_uuid', id)
         .eq('finished', true)

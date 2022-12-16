@@ -27,6 +27,7 @@ const bookFlip = ref(false)
 
 const prefix = '/taketest/test-'+testlink+'/participant-'
 
+//create timestamp from test countdown time
 const makeCountdownTime = () => {
     let hour = testInfo.value.timeframe.hour ? (testInfo.value.timeframe.hour * 3600) * 1000 : 0
     let min = testInfo.value.timeframe.min ? (testInfo.value.timeframe.min * 60) * 1000 : 0
@@ -35,23 +36,19 @@ const makeCountdownTime = () => {
 
 //submit participant
 const submit = async () => {
+    const { data, error } = await supabase.from('participants')
+        .insert({
+            test_uuid: testInfo.value.uuid,
+            data: infos.value,
+            countdown_time: makeCountdownTime()
+        })
+        .select().single()
 
-    //if (testInfo.value.fill_info) {
-        const { data, error } = await supabase.from('participants')
-            .insert({
-                test_uuid: testInfo.value.uuid,
-                data: infos.value,
-                countdown_time: makeCountdownTime()
-            })
-            .select().single()
-
-        if (data) {
-            localStorage.setItem('test-'+data.test_uuid, ''+data.test_uuid+'')
-            localStorage.setItem('parti-'+data.test_uuid, ''+data.uuid+'')
-            navigateTo(prefix+data.uuid)
-        }
-    //}
-
+    if (data) {
+        localStorage.setItem('test-'+data.test_uuid, ''+data.test_uuid+'')
+        localStorage.setItem('parti-'+data.test_uuid, ''+data.uuid+'')
+        navigateTo(prefix+data.uuid)
+    }
 }
 
 onMounted( async () => {

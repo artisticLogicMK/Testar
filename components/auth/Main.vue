@@ -1,13 +1,10 @@
 <script setup>
-import gsap from 'gsap'
-
 defineProps({
     authMode: String
 })
 
 //access supabase client
 const supabase = useSupabaseClient()
-//console.log(supabase);
 
 
 //regex to remove unwanted texts from auth errors
@@ -22,6 +19,8 @@ const authForm = ref({
     isSuccess: false
 })
 
+
+//sign up - create user
 const signup = async () => {
     authForm.value.isProcessing = true //indicate form load
 
@@ -59,6 +58,8 @@ const signup = async () => {
 }
 
 
+
+//login
 const login = async () => {
     authForm.value.isProcessing = true //indicate form load
 
@@ -100,9 +101,11 @@ const signInWithDiscord = async () => {
   })
 }
 
-//supabase.auth.onAuthStateChange((event, session) => {
-//  if (event == 'SIGNED_IN') navigateTo('/dashboard')
-//})
+/*
+supabase.auth.onAuthStateChange((event, session) => {
+  if (event == 'SIGNED_IN') navigateTo('/dashboard')
+})
+*/
 
 let authAnimation
 

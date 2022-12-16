@@ -1,5 +1,6 @@
 import { serverSupabaseClient } from '#supabase/server'
 
+//middleware to check if test exists
 export default defineNuxtRouteMiddleware(async (to) => {
     const client = useSupabaseClient()
     const { data, error } = await client.from('tests').select()

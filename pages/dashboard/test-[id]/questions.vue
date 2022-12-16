@@ -40,8 +40,7 @@ const createQuestion = async () => {
                 test_id: id,
                 timestamp: Date.now()
             })
-            .select()
-            .single()
+            .select().single()
 
         if (data) {
             question.value = data
@@ -111,6 +110,7 @@ const qImage = async image => {
     if (image.size < 1050000 && (image.type === "image/png" || image.type === "image/jpeg" || image.type === "image/svg+xml")) {
         uploadLoader.value = true//initialize loader
 
+        //preview image
         const reader = new FileReader
         reader.onload = async e => {
             imageDisplay.value = await e.target.result
@@ -140,6 +140,7 @@ const qImage = async image => {
 }
 
 onMounted( async () => {
+    //fetch test to indicate if is published or not
     const { data: fetchtest } = await supabase.from('tests').select('uuid, published')
         .eq('uuid', id)
         .single()
@@ -209,10 +210,10 @@ const slideUpSelf = (el) => {
 
         <div v-if="test && !test.published" class="flex relative overflow-hidden">
 
-           <div
-            class="absolute top-0 left-0 z-10 md:relative w-full md:translate-x-0 md:block md:max-w-[280px] lg:min-w-[300px] lg:max-w-sm h-full md:h-[80vh] bg-neutral-100 pb-16 duration-300"
-            :class="openQ ? 'flex translate-x-0' : ' md:block -translate-x-full md:translate-x-0'"
-        >
+            <div
+                class="absolute top-0 left-0 z-10 md:relative w-full md:translate-x-0 md:block md:max-w-[280px] lg:min-w-[300px] lg:max-w-sm h-full md:h-[80vh] bg-neutral-100 pb-16 duration-300"
+                :class="openQ ? 'flex translate-x-0' : ' md:block -translate-x-full md:translate-x-0'"
+            >
                 <div id="questions" class="w-full h-full border-r px-2 pb-16 overflow-y-auto">
                     <div class="flex items-center justify-between mb-1">
                         <div class="relative flex items-center font-semibold text-neutral-400 text-lg my-2">

@@ -2,8 +2,10 @@
 const results = ref<any>(null)
 const openSearch = ref<boolean>(false)
 
+//perform
 const search = async (val: string) => {
     if (val.length > 2) {
+        //perform search based on individual words in search string
         let ar: string[] = []
         val.split(' ').forEach(word => {
             if(word !== '') ar.push("'"+word+"'")

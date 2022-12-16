@@ -82,6 +82,8 @@ const loadTests = async (isAscendingOrder, filter = filters.value.type, value = 
   }
 
   totalTests.value = count
+
+  //get needed info only
   tests.value = testraw.length ? testraw.map(test => ({
     id: test.id,
     title: test.title,
@@ -143,11 +145,6 @@ onMounted(async () => {
 const slideUp = (el) => {
   slideInUpAnim(el, false)
 }
-
-/*when fetching user is needed
-const { data: p } = await useFetch('/api/getUser', {
-  headers: useRequestHeaders(['cookie'])
-})*/
 </script>
 
 <template>

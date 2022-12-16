@@ -46,9 +46,10 @@ const uploadCover = async image => {
     if (image.size < 1050000 && (image.type === "image/png" || image.type === "image/jpeg" || image.type === "image/svg+xml")) {
         uploadLoader.value = true//initialize loader
 
+        //shown image preview
         const reader = new FileReader
         reader.onload = async e => {
-            imageDisplay.value = await e.target.result
+            imageDisplay.value = e.target.result
         }
         reader.readAsDataURL(image)
 
@@ -65,7 +66,6 @@ const uploadCover = async image => {
         const uploadPath = data.path
 
         if (data) {
-            //test.value.cover = ''//to trigger change
             test.value.cover = uploadPath
             uploadLoader.value = false
             imageMsg.value = 'Cover Updated Successfully'
@@ -78,6 +78,7 @@ const uploadCover = async image => {
 
 
 onMounted( async () => {
+    //fetch the test data
     const { data: result, error } = await supabase.from('tests').select()
         .eq('user_id', useUser().value.id)
         .eq('uuid', testId)
