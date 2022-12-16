@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="200px" height="210px" viewBox="0 0 200 210" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="0" y1="0" x2="1" y2="1" id="gradient_1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.49803922" />
+      <stop offset="1" stop-color="#D3D3D3" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <path d="M0 140L60 73L126.5 73L179.5 -4.9738e-13" transform="translate(0.5 69.076416)" id="New-shape-6" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1" />
+  <path d="M0 11.5L34.5 0" transform="translate(29.5 165.57642)" id="New-shape-7" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1" />
+  <path d="M1 36.5L1 0" transform="translate(37.5 129.57642)" id="New-shape-7-Copy" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1" />
+  <path d="M0 13.5C0 6.04416 6.04416 0 13.5 0C20.9558 0 27 6.04416 27 13.5C27 20.9558 20.9558 27 13.5 27C6.04416 27 0 20.9558 0 13.5Z" transform="translate(64 149.07642)" id="Ellipse" fill="url(#gradient_1)" fill-rule="evenodd" stroke="none" />
+  <path d="M0 7.5C0 3.35786 3.35786 0 7.5 0C11.6421 0 15 3.35786 15 7.5C15 11.6421 11.6421 15 7.5 15C3.35786 15 0 11.6421 0 7.5Z" transform="translate(175 92.67642)" id="Ellipse-Copy-3" fill="url(#gradient_1)" fill-rule="evenodd" stroke="none" />
+  <path d="M0 5C0 2.23858 2.23858 0 5 0C7.76142 0 10 2.23858 10 5C10 7.76142 7.76142 10 5 10C2.23858 10 0 7.76142 0 5Z" transform="translate(190 50.576416)" id="Ellipse-Copy-4" fill="url(#gradient_1)" fill-rule="evenodd" stroke="none" />
+  <path d="M0 58.7227L20.1691 0" transform="translate(90.33093 83.076416)" id="New-shape-7-Copy-2" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1" />
+  <path d="M0 8.22275L26.5 0" transform="translate(149.5 102.576416)" id="New-shape-7-Copy-3" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1" />
+  <path d="M0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17Z" transform="translate(21.700012 96.076416)" id="Ellipse-Copy" fill="url(#gradient_1)" fill-rule="evenodd" stroke="none" />
+  <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" transform="matrix(0.9848078 0.17364804 -0.17364804 0.9848078 91.391815 0)" id="Ellipse-Copy-2" fill="url(#gradient_1)" fill-rule="evenodd" stroke="none" />
+  <path d="M0 9.49997L0 9.49997L0 9.49997L9.03158 9.49997L13 0" transform="translate(180 59.576416)" id="New-shape-8" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1" />
+</svg>

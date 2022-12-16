@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxtjs/supabase": "^0.2.5",
+    "@nuxtjs/tailwindcss": "^6.1.3",
+    "@vueuse/core": "^9.6.0",
+    "@vueuse/nuxt": "^9.6.0",
+    "nuxt": "3.0.0",
+    "nuxt-icon": "^0.1.7",
+    "uuid": "^9.0.0"
+  },
+  "dependencies": {
+    "@iconify-prerendered/vue-la": "^0.13.1656182528",
+    "@vueuse/components": "^9.6.0",
+    "alpinejs": "^3.10.5",
+    "gsap": "^3.11.3",
+    "moment": "^2.29.4",
+    "v-wave": "^1.5.0"
+  }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="157px" height="95px" viewBox="0 0 157 95" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="0" y1="0" x2="1" y2="1" id="gradient_1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.29803923" />
+      <stop offset="0.9375" stop-color="#D5D5D5" stop-opacity="0.011764706" />
+      <stop offset="1" stop-color="#D3D3D3" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient x1="0" y1="0" x2="1" y2="1" id="gradient_2">
+      <stop offset="0" stop-color="#084B5A" />
+      <stop offset="1" stop-color="#D3D3D3" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <path d="M71.5 0L135.5 94L0 94L71.5 0Z" id="Triangle" fill="url(#gradient_1)" fill-rule="evenodd" stroke="none" />
+  <path d="M66.2233 0L125.5 74L0 74L66.2233 0Z" transform="translate(31.100006 19.299988)" id="Triangle-Copy" fill="url(#gradient_2)" fill-rule="evenodd" stroke="none" />
+</svg>

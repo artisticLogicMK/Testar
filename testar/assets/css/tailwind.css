@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import "~/assets/css/lib/line-awesome.min.css";
+@import "~/assets/css/lib/animate.min.css";
+@import "~/assets/css/lib/bubbles.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+}
+body{@apply bg-gradient-to-tr from-cyan-400 to-cyan-700}
+
+*{
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    scroll-behavior: smooth;
+    /*transition: all 0.25s;*/
+    user-select: none;
+}
+ 
+*::-webkit-scrollbar{@apply w-[6px] bg-transparent}
+*::-webkit-scrollbar-thumb{@apply rounded-[10px] bg-black/[.12] dark:bg-black/[.4]}
+*::-webkit-scrollbar-thumb:hover{@apply bg-black/[.2] dark:bg-black/[.6]}
+
+svg{@apply inline-block}
+
+input, textarea, select {@apply border border-neutral-300 rounded-md px-2 py-1.5 text-base text-neutral-600}
+
+input:focus {
+    outline: 0 none;
+}
+
+@keyframes float {
+	0% {transform: translatey(0px)}
+	50% {transform: translatey(-15px)}
+	100% {transform: translatey(0px)}
+}
+.float{animation: float 6s ease-in-out infinite;}
+.float2{animation: float 6s ease-in-out 4s infinite;}
+
+@layer components{
+.btnEffect{@apply relative overflow-hidden after:bg-white/40 after:-translate-x-full hover:after:translate-x-full after:duration-500 after:absolute after:left-0 after:top-0 after:origin-left after:w-full after:h-full after:text-transparent active:after:translate-x-0 active:after:duration-[0s] }
+.btnEffect.round{@apply after:rounded-full }
+.btnEffect i, .btnEffect span, .btnEffect svg {@apply relative z-[9] }
+
+.cp{@apply cursor-pointer}
+
+.dropdown{@apply absolute top-full right-0 z-10 mt-1 bg-white rounded-md border shadow-md overflow-hidden origin-top duration-200 scale-y-0 group-hover:scale-y-100 }
+.dropdown div{@apply flex items-center text-sm px-3 py-1 w-fit first:border-b border-neutral-100 hover:bg-neutral-50/80 }
+.dropdown div i{@apply mr-1 }
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  @apply shadow-[0_0_0px_1000px_white_inset]
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #063742;
+}
