@@ -13,6 +13,7 @@ const rank = ref(null)
 const url = ref('')
 
 onMounted( async () => {
+    //fetch participants
     const { data, error } = await supabase.from('participants')
         .select('uuid, score')
         .eq('test_uuid', props.tdata.testId)

@@ -26,34 +26,36 @@ const signup = async () => {
 
     //check if email exists
     const { data: checkData, error: checkErr } = await supabase.from('registeredUsers').select()
-    .eq('email', authForm.value.email).single()
-        
-    if (checkData.email !== authForm.value.email) {
-        const { data, error } = await supabase.auth.signUp({
-            email: authForm.value.email,
-            password: authForm.value.password
-        })
-        
-        if (!error) {
-            //add user in registered table
-            const { data: usrData, error: usrErr } = await supabase.from('registeredUsers')
-                .insert({email: authForm.value.email}).select().single()
+    .eq('email', authForm.value.email)
+    
+    if (checkData) {
+        if (checkData.length > 0 && checkData[0].email !== authForm.value.email) {
+            const { data, error } = await supabase.auth.signUp({
+                email: authForm.value.email,
+                password: authForm.value.password
+            })
             
-            if (usrData) {
-                authForm.value.isError = false
-                authForm.value.isSuccess = true //if success, show email verification notice
-            }
+            if (!error) {
+                //add user in registered table
+                const { data: usrData, error: usrErr } = await supabase.from('registeredUsers')
+                    .insert({email: authForm.value.email}).select().single()
                 
+                if (usrData) {
+                    authForm.value.isError = false
+                    authForm.value.isSuccess = true //if success, show email verification notice
+                }
+                    
+            }
+            else {
+                authForm.value.password = ''
+                authForm.value.isSuccess = false
+                authForm.value.isError = error.toString().replace(supabaseErrorTextRegex, '')
+                authForm.value.isProcessing = false //end form load
+            }
         }
         else {
-            authForm.value.password = ''
-            authForm.value.isSuccess = false
-            authForm.value.isError = error.toString().replace(supabaseErrorTextRegex, '')
-            authForm.value.isProcessing = false //end form load
+            authForm.value.isError = 'Email exists already.'
         }
-    }
-    else {
-        authForm.value.isError = 'Email exists already.'
     }
 }
 
@@ -124,7 +126,7 @@ onMounted(() => {
         <div id="fourth" class="bg-white/0 w-full xsm:max-w-sm m-auto mb-0 sm:mb-auto p-2 xsm:p-3 border border-white/0 rounded-2xl shadow-sm">
             <div id="second" class="bg-white p-4 sm:p-8 w-full rounded-xl shadow-sm scale-y-0 opacity-0">
 
-                <div class="absolute left-0 top-0 w-full text-end px-4 pt-2">
+                <div class="absolute left-0 top-0 z-10 w-full text-end px-4 pt-2">
                     <div
                         class="inline-block rounded-full hover:bg-neutral-100 p-0.5 cursor-pointer"
                         @click="() => {
@@ -135,6 +137,8 @@ onMounted(() => {
                         <IconsClose :color="'fill-neutral-400/80'" :size="30" />
                     </div>
                 </div>
+
+
                 <div id="third" class="relative scale-y-0 opacity-0">
 
                     <h1 class="text-dark-200/80 text-xl font-bold mb-4">

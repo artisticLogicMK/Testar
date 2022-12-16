@@ -16,7 +16,7 @@ const search = async (val: string) => {
 
         const { data: res, error } = await supabase
             .from('tests')
-            .select('title, id, uuid')
+            .select('title, id, uuid, published')
             .eq('user_id', user.value.id)
             .textSearch('title', `${ar.join(' | ')}`)
             .limit(7)
@@ -54,7 +54,7 @@ const search = async (val: string) => {
                     <NuxtLink
                         v-for="result in results"
                         :key="result"
-                        :to="'/dashboard/test-'+result.uuid"
+                        :to="'/dashboard/test-'+result.uuid+(result.published ? '/participants' : '')"
                     >
                         <div class="text-neutral-500 text-sm border-t border-neutral-100 px-3 py-2 hover:bg-neutral-50 truncate">{{result.title}}</div>
                     </NuxtLink>
