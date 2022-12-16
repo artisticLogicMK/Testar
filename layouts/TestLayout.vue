@@ -248,5 +248,9 @@ onMounted( async () => {
 .tTp button{@apply flex items-center text-sm text-neutral-700 px-2 py-1.5 w-full border-b  last:border-none border-neutral-100 hover:bg-neutral-50/80}
 .tTp button i{@apply mr-1 }
 
+.btnEffect{@apply relative overflow-hidden after:bg-white/40 after:-translate-x-full hover:after:translate-x-full after:duration-500 after:absolute after:left-0 after:top-0 after:origin-left after:w-full after:h-full after:text-transparent active:after:translate-x-0 active:after:duration-[0s]; }
+.btnEffect.round{@apply after:rounded-full; }
+.btnEffect i, .btnEffect span, .btnEffect svg {@apply relative z-[9]; }
+
 .tlbtns{@apply btnEffect bg-gradient-to-r from-cyan-400 to-cyan-500 text-white text-sm font-semibold rounded-md px-2.5 py-1 mr-1}
 </style>

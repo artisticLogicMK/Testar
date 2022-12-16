@@ -41,10 +41,8 @@ input:focus {
 .float{animation: float 6s ease-in-out infinite;}
 .float2{animation: float 6s ease-in-out 4s infinite;}
 
-@layer components{
-.btnEffect{@apply relative overflow-hidden after:bg-white/40 after:-translate-x-full hover:after:translate-x-full after:duration-500 after:absolute after:left-0 after:top-0 after:origin-left after:w-full after:h-full after:text-transparent active:after:translate-x-0 active:after:duration-[0s] }
-.btnEffect.round{@apply after:rounded-full }
-.btnEffect i, .btnEffect span, .btnEffect svg {@apply relative z-[9] }
+@layer utilities{
+
 
 .cp{@apply cursor-pointer}
 
