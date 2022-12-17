@@ -7,8 +7,7 @@ definePageMeta({
 
 const supabase = useSupabaseClient() //init spb client
 
-//get user data
-const userAuth = useUser()
+const userAuth = ref(null)
 
 const dashToggles = ref({
   sort: false,
@@ -19,7 +18,7 @@ const tests = ref(null)
 const ascendingOrder = ref(false)
 const filters = ref({
   type: 'user_id',
-  val: userAuth.value.id
+  val: userAuth.value ? userAuth.value.id : null
 })
 const page = ref(0)
 const totalTests = ref(null)
@@ -131,6 +130,7 @@ const openTest = (e, uuid, published) => {
 }
 
 onMounted(async () => {
+  userAuth.value = useUser() //get user data
 
   watchEffect(() => {
     if (!userAuth) navigateTo('/')
