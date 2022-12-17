@@ -5,7 +5,7 @@ const { id } = useRoute().params
 
 const supabase = useSupabaseClient() //init spb client
 
-const userAuth = useUser() //user Auth data
+const userAuth = ref(null)
 
 const test = ref(null)
 
@@ -111,9 +111,11 @@ const closePublish = () => {
 }
 
 onMounted( async () => {
+    userAuth.value = useUser() //get user data
+
     //fetch test data
     const { data: result, error } = await supabase.from('tests').select()
-        .eq('user_id', useUser().value.id)
+        .eq('user_id', userAuth.value.id)
         .eq('uuid', id)
         .single()
 
