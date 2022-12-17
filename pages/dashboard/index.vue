@@ -1,9 +1,9 @@
 <script setup >
 import moment from 'moment'
 
-definePageMeta({
+/*definePageMeta({
   middleware: ['authenticated']
-})
+})*/
 
 const supabase = useSupabaseClient() //init spb client
 
@@ -19,7 +19,7 @@ const tests = ref(null)
 const ascendingOrder = ref(false)
 const filters = ref({
   type: 'user_id',
-  val: userAuth.value.id
+  //val: userAuth.value.id
 })
 const page = ref(0)
 const totalTests = ref(null)
