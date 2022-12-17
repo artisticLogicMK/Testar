@@ -1,5 +1,5 @@
 <script setup>
-const userAuth = ref(null)
+const userAuth = useUser() //get user data
 
 const alertData = ref({
     is: false, type: null, msg: null
@@ -19,8 +19,6 @@ const logout = async () => {
 
 
 onMounted(() => {
-    userAuth.value = useUser() //get user data
-
     //instantiate clipboardjs
     let clipboard = new ClipboardJS('.copybtn')
     clipboard.on('success', function(e) {
@@ -89,7 +87,7 @@ onMounted(() => {
                 <IconsUser :color="'fill-white/80'" :size="23" />
 
                 <div class="authMenu absolute top-full right-0 z-[9999] max-w[250px] bg-cyan-400/80 backdrop-blur-sm rounded-md mt-1.5 duration-300" x-show="aMenu" x-on:mouseleave="aMenu = false" x-transition>
-                    <div>{{userAuth !== null ? userAuth.email : ''}}</div>
+                    <div>{{userAuth.email}}</div>
                     <div @click="logout">Logout</div>
                 </div>
             </div>

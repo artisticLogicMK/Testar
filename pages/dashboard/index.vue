@@ -7,7 +7,8 @@ definePageMeta({
 
 const supabase = useSupabaseClient() //init spb client
 
-const userAuth = ref(null)
+//get user data
+const userAuth = useUser()
 
 const dashToggles = ref({
   sort: false,
@@ -18,7 +19,7 @@ const tests = ref(null)
 const ascendingOrder = ref(false)
 const filters = ref({
   type: 'user_id',
-  val: userAuth.value ? userAuth.value.id : null
+  val: userAuth.value.id
 })
 const page = ref(0)
 const totalTests = ref(null)
@@ -55,7 +56,7 @@ const categories = testCategories //get test categories
 
 
 //action to load user tests
-const loadTests = async (isAscendingOrder, filter = filters.value.type, value = userAuth.value.id) => {
+const loadTests = async (isAscendingOrder, filter = filters.value.type, value = filters.value.val) => {
 
   ascendingOrder.value = isAscendingOrder //set fetch order
   filters.value = {
@@ -81,7 +82,7 @@ const loadTests = async (isAscendingOrder, filter = filters.value.type, value = 
   }
 
   totalTests.value = count
-console.log(testraw);
+
   //get needed info only
   tests.value = testraw.length ? testraw.map(test => ({
     id: test.id,
@@ -130,7 +131,6 @@ const openTest = (e, uuid, published) => {
 }
 
 onMounted(async () => {
-  userAuth.value = useUser() //get user data
 
   watchEffect(() => {
     if (!userAuth) navigateTo('/')
