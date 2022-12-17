@@ -20,5 +20,8 @@
     "@vueuse/components": "^9.6.0",
     "gsap": "^3.11.3",
     "moment": "^2.29.4"
+  },
+  "engines": {
+    "node": ">=16.11"
   }
 }
