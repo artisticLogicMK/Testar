@@ -55,7 +55,7 @@ const categories = testCategories //get test categories
 
 
 //action to load user tests
-const loadTests = async (isAscendingOrder, filter = filters.value.type, value = filters.value.val) => {
+const loadTests = async (isAscendingOrder, filter = filters.value.type, value = userAuth.value.id) => {
 
   ascendingOrder.value = isAscendingOrder //set fetch order
   filters.value = {
