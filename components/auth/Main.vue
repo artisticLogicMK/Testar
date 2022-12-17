@@ -27,35 +27,34 @@ const signup = async () => {
     //check if email exists
     const { data: checkData, error: checkErr } = await supabase.from('registeredUsers').select()
     .eq('email', authForm.value.email)
-    
-    if (checkData) {
-        if (checkData.length > 0 && checkData[0].email !== authForm.value.email) {
-            const { data, error } = await supabase.auth.signUp({
-                email: authForm.value.email,
-                password: authForm.value.password
-            })
+
+    if (checkData.length < 1) {
+        const { data, error } = await supabase.auth.signUp({
+            email: authForm.value.email,
+            password: authForm.value.password
+        })
+        
+        if (!error) {
+            //add user in registered table
+            const { data: usrData, error: usrErr } = await supabase.from('registeredUsers')
+                .insert({email: authForm.value.email}).select().single()
             
-            if (!error) {
-                //add user in registered table
-                const { data: usrData, error: usrErr } = await supabase.from('registeredUsers')
-                    .insert({email: authForm.value.email}).select().single()
+            if (usrData) {
+                authForm.value.isError = false
+                authForm.value.isSuccess = true //if success, show email verification notice
+            }
                 
-                if (usrData) {
-                    authForm.value.isError = false
-                    authForm.value.isSuccess = true //if success, show email verification notice
-                }
-                    
-            }
-            else {
-                authForm.value.password = ''
-                authForm.value.isSuccess = false
-                authForm.value.isError = error.toString().replace(supabaseErrorTextRegex, '')
-                authForm.value.isProcessing = false //end form load
-            }
         }
         else {
-            authForm.value.isError = 'Email exists already.'
+            authForm.value.password = ''
+            authForm.value.isSuccess = false
+            authForm.value.isError = error.toString().replace(supabaseErrorTextRegex, '')
+            authForm.value.isProcessing = false //end form load
         }
+    }
+    else {
+        authForm.value.isError = 'Email exists already.'
+        authForm.value.isProcessing = false
     }
 }
 
@@ -89,18 +88,21 @@ const signInWithLinkedIn = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'linkedin',
   })
+  console.log(data);
 }
 
 const signInWithGitHub = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'github',
   })
+  console.log(data);
 }
 
 const signInWithDiscord = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'discord',
   })
+  console.log(data);
 }
 
 /*

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 
-definePageMeta({
+/*definePageMeta({
     middleware: ['auth']
-})
+})*/
 
 //get user data
 const user = useSupabaseUser()
