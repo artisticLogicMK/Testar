@@ -89,7 +89,7 @@ onMounted(() => {
                 <IconsUser :color="'fill-white/80'" :size="23" />
 
                 <div class="authMenu absolute top-full right-0 z-[9999] max-w[250px] bg-cyan-400/80 backdrop-blur-sm rounded-md mt-1.5 duration-300" x-show="aMenu" x-on:mouseleave="aMenu = false" x-transition>
-                    <div>{{userAuth ? userAuth.email : ''}}</div>
+                    <div>{{userAuth !== null ? userAuth.email : ''}}</div>
                     <div @click="logout">Logout</div>
                 </div>
             </div>

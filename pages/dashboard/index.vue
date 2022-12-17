@@ -81,7 +81,7 @@ const loadTests = async (isAscendingOrder, filter = filters.value.type, value = 
   }
 
   totalTests.value = count
-
+console.log(testraw);
   //get needed info only
   tests.value = testraw.length ? testraw.map(test => ({
     id: test.id,
