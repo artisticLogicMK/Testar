@@ -88,21 +88,18 @@ const signInWithLinkedIn = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'linkedin',
   })
-  console.log(data);
 }
 
 const signInWithGitHub = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'github',
   })
-  console.log(data);
 }
 
 const signInWithDiscord = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'discord',
   })
-  console.log(data);
 }
 
 /*
@@ -128,7 +125,7 @@ onMounted(() => {
         <div id="fourth" class="bg-white/0 w-full xsm:max-w-sm m-auto mb-0 sm:mb-auto p-2 xsm:p-3 border border-white/0 rounded-2xl shadow-sm">
             <div id="second" class="bg-white p-4 sm:p-8 w-full rounded-xl shadow-sm scale-y-0 opacity-0">
 
-                <div class="absolute left-0 top-0 z-10 w-full text-end px-4 pt-2">
+                <div class="absolute left-0 top-0 z-20 w-full text-end px-4 pt-2">
                     <div
                         class="inline-block rounded-full hover:bg-neutral-100 p-0.5 cursor-pointer"
                         @click="() => {
@@ -193,7 +190,6 @@ onMounted(() => {
                                 </button>
                             </div>
                         </form>
-                        <AuthForm />
                     </div>
 
 
@@ -206,7 +202,7 @@ onMounted(() => {
 </template>
 
 <style>
-.fields{ @apply flex items-center w-full border border-dark-200/40 text-dark-200 rounded-md p-1 mb-3 }
+.fields{ @apply flex items-center w-full border border-dark-200/40 text-dark-200 rounded-md px-1 py-0.5 mb-3 }
 .fields i{ @apply mr-1 text-xl }
 .fields input{ @apply grow text-base bg-transparent }
 </style>

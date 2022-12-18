@@ -157,7 +157,7 @@ const slideInUp = (el) => {
                             <div v-if="testInfo.fill_info" class="w-full">
                                 <div class="mb-3">
                                     <p class="text-neutral-500/70 text-sm font-bold">Fill the information below to start the test.</p>
-                                    <p class="text-neutral-600 text-sm">The fields with (<span class="text-red-500">*</span>) are required.</p>
+                                    <p class="text-neutral-600 text-sm">The fields marked with (<span class="text-red-500">*</span>) are required.</p>
                                 </div>
 
 

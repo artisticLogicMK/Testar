@@ -25,9 +25,11 @@ Made with
 <h3>
 <strong>Links</strong>
 
-<a href="https://testar-nf1s.onrender.com/" target="_blank">View the app in action.</a>
+<a href="https://testar-app.vercel.app/taketest/test-0f7c6570-c0f3-4c83-9f73-f98ecf9962de" target="_blank">Take a sample test.</a>
 
-<a href="https://www.behance.net/gallery/154544225/UpNote-Note-taking-application" target="_blank">Check out more screenshots on behance.</a>
+<a href="https://testar-app.vercel.app/" target="_blank">View the app in action.</a>
+
+<a href="https://www.behance.net/gallery/157605355/Testar-Tests-Qiuz-app" target="_blank">Check out more screenshots on behance.</a>
 </h3>
 <br>
 

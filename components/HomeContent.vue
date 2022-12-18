@@ -17,7 +17,7 @@ const fadeIn = (el: HTMLElement) => {
 <template>
 
         <transition appear @enter="fadeIn">
-            <div class="flex flex-col opacity-1" id="homeContainer">
+            <div class="flex flex-col opacity-1 h-full" id="homeContainer">
 
                 <div>
                     <NuxtLayout name="nav-layout">
@@ -45,7 +45,7 @@ const fadeIn = (el: HTMLElement) => {
                         <h1 class="text-3xl sm:text-4xl text-dark-200 font-bold">Creating tests and quizzes made simple!</h1>
                         <p class="text-white/95 text-[1.03rem] sm:text-[1.08rem] font-semibold">Testar is an app for creating and publishing online tests and quizzes. With its user-friendly dashboard, professionals and hobbyists can quickly create engaging tests to assess knowledge and understanding. Testar makes it easy to share tests with others through a link, allowing them to participate and take the test. It's an excellent solution for anyone in need of a reliable and efficient way to create and administer online tests and quizzes.</p>
                         
-                        <NuxtLink to="https://testar-nf1s.onrender.com/taketest/test-0f7c6570-c0f3-4c83-9f73-f98ecf9962de" target="_blank">
+                        <NuxtLink to="https://testar-app.vercel.app/taketest/test-0f7c6570-c0f3-4c83-9f73-f98ecf9962de" target="_blank">
                             <button class="bg-gradient-to-tr from-white/5 to-dark-200 hover:from-dark-200 text-white/90 text-sm sm:text-base px-4 py-2 rounded-md -skew-x-[32deg] ml-3 mt-3">
                                 <span class="block skew-x-[32deg] font-bold">Try a test</span>
                             </button>

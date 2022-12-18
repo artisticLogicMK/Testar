@@ -7,6 +7,8 @@ const alertData = ref({
 
 const supabase = useSupabaseClient() //init spb client
 
+const authMenu = ref(false)
+
 
 const logout = async () => {
     const { error } = await supabase.auth.signOut()
@@ -73,7 +75,7 @@ onMounted(() => {
             <IconsSearch class="sm:hidden cursor-pointer" :color="'fill-white/80'" :size="28" x-on:click="searchOpen = true" />
             
             
-            <div class="relative cursor-pointer">
+            <div class="hidden relative cursor-pointer">
                 <IconsBell class="mx-2" :color="'fill-white/80'" :size="28" />
                 <span class="absolute -top-1.5 right-0 flex justify-center items-center w-5 h-5 bg-cyan-400 text-white text-xs font-semibold px-1 py-0.5 rounded-full shadow-md">4</span>
 
@@ -83,13 +85,15 @@ onMounted(() => {
             </div>
 
 
-            <div class="relative rounded-full bg-white/[.15] w-9 h-9 flex items-center justify-center text-xl leading-none ml-1 border border-transparent hover:border-white cursor-pointer" x-on:click="aMenu = !aMenu">
+            <div class="relative rounded-full bg-white/[.15] w-9 h-9 flex items-center justify-center text-xl leading-none ml-1 border border-transparent hover:border-white cursor-pointer" @click="authMenu = !authMenu">
                 <IconsUser :color="'fill-white/80'" :size="23" />
 
-                <div class="authMenu absolute top-full right-0 z-[9999] max-w[250px] bg-cyan-400/80 backdrop-blur-sm rounded-md mt-1.5 duration-300" x-show="aMenu" x-on:mouseleave="aMenu = false" x-transition>
-                    <div>{{userAuth.email}}</div>
-                    <div @click="logout">Logout</div>
-                </div>
+                <transition enter-active-class="ans an-fadeInUp an-faster" leave-active-class="ans an-fadeOutDown an-faster">
+                    <div class="authMenu absolute top-full right-0 z-[9999] max-w[250px] bg-cyan-400/80 backdrop-blur-sm rounded-md mt-1.5 duration-300" v-if="authMenu" @mouseleave="authMenu = false">
+                        <div>{{userAuth.email}}</div>
+                        <div @click="logout">Logout</div>
+                    </div>
+                </transition>
             </div>
         </div>
        
