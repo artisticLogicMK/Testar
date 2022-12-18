@@ -1,12 +1,12 @@
 <h1 align="center">Testar</h1>
 
-<p align="center"><img src="https://firebasestorage.googleapis.com/v0/b/learn-c73c3.appspot.com/o/Misc%2Fsocial.png?alt=media&token=2752274e-6a19-41d0-a38f-6644c6103f07"></p>
+<p align="center"><img src="https://firebasestorage.googleapis.com/v0/b/learn-c73c3.appspot.com/o/Misc%2FTestar-Dashboard.png?alt=media&token=f4652d23-0037-46fd-9024-04ad5918ed6e"></p>
 
 <h3 align="center">
 Testar is an app for creating and publishing online tests and quizzes. With its user-friendly dashboard, professionals and hobbyists can quickly create engaging tests to assess knowledge and understanding. Testar makes it easy to share tests with others through a link, allowing them to participate and take the test. It's an excellent solution for anyone in need of a reliable and efficient way to create and administer online tests and quizzes.
 </h3>
 
-<h3 align="center">
+<h4 align="center">
 <br>
 Made with
 
@@ -17,7 +17,7 @@ Made with
 <a href="https://www.typescriptlang.org/">![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)</a>
 <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/tailwind%20css-%2338B2AC.svg?&style=for-the-badge&logo=tailwind%20css&logoColor=white" /></a>
 <br/>
-</h3>
+</h4>
 <br>
 
 > The purpose of this repository is to showcase Testar app's source code.
