@@ -3,8 +3,8 @@ defineProps(['authMode'])
 </script>
 
 <template>
-    <div class="grid grid-cols-3 gap-3 mb-3">
-        <div class="socials hidden">
+    <div class="grid grid-cols-4 gap-3 mb-3">
+        <div class="socials" @click="$emit('signInWithGoogle')">
             <Icon name="logos:google-icon" size="1.5em" />
         </div>
         <div class="socials hidden" @click="$emit('signInWithTwitter')">

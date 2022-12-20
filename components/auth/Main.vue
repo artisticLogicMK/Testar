@@ -102,6 +102,12 @@ const signInWithDiscord = async () => {
   })
 }
 
+const signInWithGoogle = async () => {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+  })
+}
+
 /*
 supabase.auth.onAuthStateChange((event, session) => {
   if (event == 'SIGNED_IN') navigateTo('/dashboard')
@@ -149,6 +155,7 @@ onMounted(() => {
                         <AuthSocialAuths
                             :authMode="authMode"
                             @signInWithEmail="signInWithEmail()"
+                            @signInWithGoogle="signInWithGoogle()"
                             @signInWithTwitter="signInWithTwitter()"
                             @signInWithLinkedIn="signInWithLinkedIn()"
                             @signInWithDiscord="signInWithDiscord()"

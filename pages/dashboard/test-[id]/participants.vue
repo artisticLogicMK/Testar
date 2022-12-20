@@ -18,7 +18,7 @@ const questionCount = ref(null)
 
 const participantInfo = ref(null)
 
-onMounted( async () => {
+onBeforeMount( async () => {
     //fetch participants
     const { data, error } = await supabase.from('participants').select()
         .eq('test_uuid', id)
