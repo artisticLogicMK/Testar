@@ -189,7 +189,7 @@ onMounted(() => {
                                     class="inline-flex items-center text-xs font-bold bg-cyan-400 text-white rounded-md px-3 py-0.5"
                                     :disabled="authForm.isProcessing"
                                 >
-                                    Sign Up
+                                    {{authMode === 'signup' ? 'Sign Up' : 'Login'}}
                                     <i
                                         class="la la-arrow-right text-lg ml-1"
                                         :class="{'la-spin la-spinner': authForm.isProcessing}"

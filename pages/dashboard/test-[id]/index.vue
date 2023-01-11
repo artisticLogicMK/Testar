@@ -315,8 +315,8 @@ const storagePrefix = spbStorageUrl
 
                             <div
                                 class="dropdown ch"
-                                :class="infoBtns == i ? 'scale-y-100' : 'scale-y-0'"
-                                 @mouseleave="infoBtns = null"
+                                :class="infoBtns == i ? '[transform:scaleY(1)!important]' : 'scale-y-0'"
+                                @mouseleave="infoBtns = null"
                             >
                                 <div
                                     @click.stop="() => {

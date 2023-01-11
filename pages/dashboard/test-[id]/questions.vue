@@ -223,7 +223,7 @@ const slideUpSelf = (el) => {
                                 <IconsQuestionMark :color="'fill-neutral-400'" :size="22" class="-mt-0.5 cursor-pointer" />
 
                                 <div class="absolute top-full left-0 min-w-[250px] max-w-[300px] bg-white border rounded-md p-2 text-sm text-neutral-500 font-normal shadow-md hidden group-hover:block">
-                                    Questions are ordered from old(top) to new(bottom); you can re-order them by dragging a question by the icon on the right side.
+                                    Questions are ordered from old(top) to new(bottom).
                                 </div>
                             </div>
                         </div>
