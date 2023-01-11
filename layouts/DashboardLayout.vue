@@ -100,7 +100,7 @@ onMounted(() => {
     </NuxtLayout>
 
 
-    <div class="relative flex flex-col items-center mt-2 px-2 sm:px-3">
+    <div class="relative flex flex-col items-center mt-2 px-2 sm:px-3 mb-5">
         <div class="h-full absolute top-0 w-full overflow-y-hidden">
             <div class="bg-neutral-100/0 h-full mt-14"></div>
         </div>
