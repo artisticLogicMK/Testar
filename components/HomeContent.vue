@@ -17,7 +17,7 @@ const fadeIn = (el: HTMLElement) => {
 <template>
 
         <transition appear @enter="fadeIn">
-            <div class="flex flex-col opacity-1 h-full" id="homeContainer">
+            <div class="flex flex-col opacity-1 h-full mb-5 sm:mb-6 md:mb-auto" id="homeContainer">
 
                 <div>
                     <NuxtLayout name="nav-layout">
