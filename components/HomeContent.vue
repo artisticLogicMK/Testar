@@ -47,7 +47,7 @@ const fadeIn = (el: HTMLElement) => {
                         
                         <NuxtLink to="https://testar-app.vercel.app/taketest/test-0f7c6570-c0f3-4c83-9f73-f98ecf9962de" target="_blank">
                             <button class="bg-gradient-to-tr from-white/5 to-dark-200 hover:from-dark-200 text-white/90 text-sm sm:text-base px-4 py-2 rounded-md -skew-x-[32deg] ml-3 mt-3">
-                                <span class="block skew-x-[32deg] font-bold">Try a test</span>
+                                <span class="block skew-x-[32deg] font-bold">Take a test</span>
                             </button>
                         </NuxtLink>
                         
