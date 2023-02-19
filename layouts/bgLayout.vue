@@ -10,16 +10,16 @@ onMounted(() => {
 
     <div class="table h-full w-full relative">
 
-        <div class="absolute top-0 w-full h-full overflow-hidden">
+        <div class="absolute top-0 w-full h-screen overflow-hidden">
             <div class="w-full max-w-6xl mx-auto">
         
-                <img src="~/assets/img/rank.svg" class="bgItems w-52 md:w-64 absolute bottom-0 left-[30%] -mb-[55px] md:-mb-[15px] float2">
+                <img src="~/assets/img/rank.svg" class="bgItems w-48 w-md:w-60 absolute invisible md:visible bottom-0 md:bottom-16 left-[33%] -mb-[55px] md:-mb-[15px] float2">
 
                 <img src="~/assets/img/plant.svg" class="bgItems w-64 absolute top-44 left-0 float2 opacity-60 md:opacity-100">
 
                 <img src="~/assets/img/plant2.svg" class="bgItems w-32 absolute top-20 right-0 float2 opacity-60 md:opacity-100">
 
-                <img src="~/assets/img/trangle.svg" class="bgItems w-44 absolute bottom-0 right-[10%] -mb-[15px] float2 hidden md:block">
+                <img src="~/assets/img/trangle.svg" class="bgItems w-44 absolute invisible md:visible bottom-16 right-[10%] -mb-[15px] float2 hidden md:block">
             </div>
 
         </div>

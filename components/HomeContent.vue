@@ -39,7 +39,7 @@ const fadeIn = (el: HTMLElement) => {
 
 
                 <!--body-->
-                <div class="grow flex flex-col md:flex-row items-center w-full max-w-5xl mx-auto px-3 mt-7 md:mt-auto">
+                <div class="grow flex flex-col md:flex-row items-center w-full max-w-5xl mx-auto px-3 mt-7 mb-5 md:mt-auto">
 
                     <div class="w-full md:w-1/2 md:mr-4">
                         <h1 class="text-3xl sm:text-4xl text-dark-200 font-bold">Creating tests and quizzes made simple!</h1>
@@ -61,9 +61,13 @@ const fadeIn = (el: HTMLElement) => {
                     </div>
 
                 </div>
+                
+                <HomeContentBody />
 
             </div>
         </transition>
+
+        
 
         <AuthMain
             :authMode="mountAuthModal"
