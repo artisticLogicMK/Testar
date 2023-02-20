@@ -146,38 +146,44 @@ onMounted( async () => {
 
 
     <div v-if="test">
-        <div class="testNav relative flex justify-between items-center mx-3 mt-3 border-b" x-data="{openMenu: false}">
+        <div class="testNav relative flex justify-between items-center mx-2 sm:mx-0 py-1 sm:py-0 border-b" x-data="{openMenu: false}">
 
-            <ul x-bind:class="openMenu ? 'scale-y-100' : 'scale-y-0 sm:scale-y-100'">
-                <li v-if="!test.published" class="group">
-                    <NuxtLink :to="'/dashboard/test-'+id">
-                        <div><i class="la la-tasks"></i> <span>Info/Options</span></div>
-                        <div class="group-hover:scale-x-100 origin-right"></div>
-                    </NuxtLink>
-                </li>
-                <li v-if="!test.published" class="group">
-                    <NuxtLink :to="'/dashboard/test-'+id+'/questions'">
-                        <div>
-                            <i class="la la-question-circle"></i> <span>Questions</span>
-                            <span class="bdg">{{state.questionCount}}</span>
-                        </div>
-                        <div class="group-hover:scale-x-100 origin-left"></div>
-                    </NuxtLink>
-                </li>
-                <li class="group">
-                    <NuxtLink :to="'/dashboard/test-'+id+'/participants'">
-                        <div><i class="la la-comments"></i>
-                        <span>Participants</span> <span class="bdg">{{ptpCount}}</span></div>
-                        <div class="group-hover:scale-x-100 origin-left"></div>
-                    </NuxtLink>
-                </li>
-            </ul>
+            <div class="flex items-center">
+                <NuxtLink :to="'/dashboard'">
+                    <IconsHome class="mr-2 ml-1" :color="'fill-neutral-400/90'" :size="26" />
+                </NuxtLink>
 
-            <IconsBars v-if="!test.published" class="sm:hidden cursor-pointer" :color="'fill-neutral-400'" :size="27" x-on:click="openMenu = !openMenu" />
+                <ul x-bind:class="openMenu ? 'scale-y-100' : 'scale-y-0 sm:scale-y-100'">
+                    <li v-if="!test.published" class="group">
+                        <NuxtLink :to="'/dashboard/test-'+id">
+                            <div><i class="la la-tasks"></i> <span>Info/Options</span></div>
+                            <div class="group-hover:scale-x-100 origin-right"></div>
+                        </NuxtLink>
+                    </li>
+                    <li v-if="!test.published" class="group">
+                        <NuxtLink :to="'/dashboard/test-'+id+'/questions'">
+                            <div>
+                                <i class="la la-question-circle"></i> <span>Questions</span>
+                                <span class="bdg">{{state.questionCount}}</span>
+                            </div>
+                            <div class="group-hover:scale-x-100 origin-left"></div>
+                        </NuxtLink>
+                    </li>
+                    <li class="group">
+                        <NuxtLink :to="'/dashboard/test-'+id+'/participants'">
+                            <div><i class="la la-comments"></i>
+                            <span>Participants</span> <span class="bdg">{{ptpCount}}</span></div>
+                            <div class="group-hover:scale-x-100 origin-left"></div>
+                        </NuxtLink>
+                    </li>
+                </ul>
 
-            <span v-else></span>
+                <IconsBars v-if="!test.published" class="sm:hidden cursor-pointer" :color="'fill-neutral-400'" :size="27" x-on:click="openMenu = !openMenu" />
+            </div>
 
-            <div class="flex items-center mb-1 sm:mb-auto">
+            
+
+            <div class="flex items-center">
                 <button
                     v-if="!test.published"
                     @click="openPublishMdl = true"

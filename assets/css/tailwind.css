@@ -26,7 +26,7 @@ body{@apply bg-gradient-to-tr from-cyan-400 to-cyan-700}
 
 svg{@apply inline-block}
 
-input, textarea, select {@apply border border-neutral-300 rounded-md px-2 py-1.5 text-base text-neutral-600}
+input, textarea, select {@apply border border-neutral-300 rounded-md px-2 py-1.5 text-sm text-neutral-600}
 
 input:focus {
     outline: 0 none;

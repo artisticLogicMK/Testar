@@ -78,7 +78,7 @@ onMounted( async () => {
 
     //fetch test
     const { data: test } = await supabase.from('tests')
-        .select('id, title, timeframe, pass_range, see_score, see_pass, specify_time')
+        .select('id, title, timeframe, pass_range, see_score, see_pass, specify_time, link')
         .eq('uuid', data.test_uuid)
         .single()
 
@@ -291,6 +291,7 @@ const slideInUp = (el) => {
                 }"
                 :tdata="{
                     testId: participant.test_uuid,
+                    testLink: testInfo.link,
                     testTitle: testInfo ? testInfo.title : '',
                     pass_range: testInfo.pass_range,
                     see_score: testInfo.see_score,
@@ -298,6 +299,7 @@ const slideInUp = (el) => {
                 }"
             />
         </div>
+        
         <Footer />
     </NuxtLayout>
 </template>

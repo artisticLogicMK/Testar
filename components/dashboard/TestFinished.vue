@@ -64,19 +64,24 @@ onMounted( async () => {
                         <p>Among the {{participants.length}} participants who have taken this test.</p>
                     </div>
 
-                    <div class="text-white/90 text-sm mt-2" x-data="{copy:false}">
-                        <span x-on:click="copy=true" class="copybtn underline cursor-pointer" :data-clipboard-text="url" x-text="copy ? 'Link Copied' : 'Copy Link'"></span>
+                    <div class="text-white/90 text-sm mt-2" x-data="{result:false,test:false}">
+                        <span x-on:click="result=true" class="copybtn underline cursor-pointer" :data-clipboard-text="url" x-text="result ? 'Result Copied' : 'Copy Result'"></span>
                         <span class="mx-2">|</span>
+                        
+                        <span x-on:click="test=true" class="copybtn underline cursor-pointer" :data-clipboard-text="takeTestUrl+tdata.testLink" x-text="test ? 'Link Copied' : 'Test Link'"></span>
+                        <span class="mx-2">|</span>
+
                         <NuxtLink to="/" class="underline">Create your own test.</NuxtLink>
                     </div>
                 </div>
 
-                <Icon name="fluent-emoji:spouting-whale" size="8em" class="mt-2" />
+                <div class="text-center">
+                    <img src="~/assets/img/thumbs-up.svg" class="w-32 mt-4 inline-block">
+                </div>
             </div>
         </transition>
 
     </div>
-
 
 </template>
 

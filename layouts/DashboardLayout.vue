@@ -105,7 +105,7 @@ onMounted(() => {
             <div class="bg-neutral-100/0 h-full mt-14"></div>
         </div>
 
-        <div class="bg-white h-full w-full max-w-5xl relative z-10 rounded-2xl shadow-xl px-1.5 xsm:px-3 lg:px-5 opacity-[.99] duration-200">
+        <div class="bg-white h-full w-full max-w-5xl relative z-10 rounded-lg sm:rounded-2xl shadow-xl px-1.5 xsm:px-3 lg:px-3 opacity-[.99] duration-200">
             <slot />
         </div>
     </div>

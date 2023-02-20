@@ -288,7 +288,7 @@ const slideInUp = (el) => {
         <IconsLoader class="animate-spin inline-block" :color="'fill-white/80'" :size="60" />
     </div>
 
-    <Footer />
+    <Footer class="mt-5" />
 </NuxtLayout>
 </template>
 
