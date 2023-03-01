@@ -17,7 +17,7 @@ const fadeIn = (el: HTMLElement) => {
 <template>
 
         <transition appear @enter="fadeIn">
-            <div class="flex flex-col opacity-1 h-full mb-5 sm:mb-6 md:mb-auto" id="homeContainer">
+            <div class="flex flex-col opacity-1 h-auto mb-5 sm:mb-6 md:mb-auto" id="homeContainer">
 
                 <div>
                     <NuxtLayout name="nav-layout">
@@ -39,9 +39,17 @@ const fadeIn = (el: HTMLElement) => {
 
 
                 <!--body-->
-                <div class="grow flex flex-col md:flex-row items-center w-full max-w-5xl mx-auto px-3 mt-7 mb-5 md:mt-auto">
+                <div class="relative grow flex flex-col md:flex-row items-center w-full max-w-5xl mx-auto px-3 pt-7 pb-9 md:mt-auto">
 
-                    <div class="w-full md:w-1/2 md:mr-4">
+                    <div class="absolute top-0 left-0 w-full h-[106%] overflow-hidden">
+                        <div class="w-full max-w-6xl mx-auto">
+                            <img src="~/assets/img/rank.svg" class="bgItems w-56 absolute bottom-0 left-[30%] -mb-[55px] md:-mb-[15px] float2">
+
+                            <img src="~/assets/img/trangle.svg" class="bgItems hidden md:block w-44 absolute bottom-0 right-[6%] -mb-[15px] float2">
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/2 md:mr-4 relative z-10">
                         <h1 class="text-3xl sm:text-4xl text-dark-200 font-bold">Creating tests and quizzes made simple!</h1>
                         <p class="text-white/95 text-[1.03rem] sm:text-[1.08rem] font-semibold">Testar is an app for creating and publishing online tests and quizzes. With its user-friendly dashboard, professionals and hobbyists can quickly create engaging tests to assess knowledge and understanding. Testar makes it easy to share tests with others through a link, allowing them to participate and take the test. It's an excellent solution for anyone in need of a reliable and efficient way to create and administer online tests and quizzes.</p>
                         
@@ -61,12 +69,14 @@ const fadeIn = (el: HTMLElement) => {
                     </div>
 
                 </div>
-                
+
                 <HomeContentBody />
 
             </div>
         </transition>
-
+        
+        
+        
         
 
         <AuthMain

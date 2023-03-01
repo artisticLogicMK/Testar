@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-5">
+    <div class="mb-5 relative z-20">
 
         <img src="~/assets/img/home-asset1.png" class="w-full">
         

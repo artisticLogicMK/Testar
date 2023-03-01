@@ -9,6 +9,7 @@
 body{
     font-family: 'Open Sans', sans-serif;
     height: 100%;
+    width: 100%;
 }
 body{@apply bg-gradient-to-tr from-cyan-400 to-cyan-700}
 

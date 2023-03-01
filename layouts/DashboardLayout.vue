@@ -9,6 +9,7 @@ const supabase = useSupabaseClient() //init spb client
 
 const authMenu = ref(false)
 
+const mountDashboard = ref(false)
 
 const logout = async () => {
     const { error } = await supabase.auth.signOut()
@@ -58,13 +59,16 @@ onMounted(() => {
 
 <template>
 <NuxtLayout name="bg-layout">
+
+    <TestarLoader @viewComponent="mountDashboard = true" />
+
     <DashboardAlerts
         v-if="alertData.is"
         :alertData="alertData"
         @closeAlert="alertData = {is: false,type:null,msg:null}" 
     />
 
-    <NuxtLayout name="nav-layout">
+    <NuxtLayout name="nav-layout" v-if="mountDashboard">
         <NuxtLink to="/dashboard"><img src="~/assets/img/logo.svg" class="w-20 opacity-90"></NuxtLink>
 
 
@@ -100,12 +104,12 @@ onMounted(() => {
     </NuxtLayout>
 
 
-    <div class="relative flex flex-col items-center mt-2 px-2 sm:px-3 mb-5">
+    <div class="relative flex flex-col items-center mt-1 px-2 sm:px-3 mb-5" v-if="mountDashboard">
         <div class="h-full absolute top-0 w-full overflow-y-hidden">
             <div class="bg-neutral-100/0 h-full mt-14"></div>
         </div>
 
-        <div class="bg-white h-full w-full max-w-5xl relative z-10 rounded-lg sm:rounded-2xl shadow-xl px-1.5 xsm:px-3 lg:px-3 opacity-[.99] duration-200">
+        <div class="bg-white border h-full w-full max-w-5xl relative z-10 rounded-lg sm:rounded-2xl shadow-xl px-1.5 xsm:px-3 lg:px-3 opacity-[.99] duration-200">
             <slot />
         </div>
     </div>

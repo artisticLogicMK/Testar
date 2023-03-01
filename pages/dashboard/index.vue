@@ -27,16 +27,20 @@ const totalPages = ref(null)
 
 const isFiltered = ref(false)
 
-const clickCreate = ref(false)
-
 const addRequest = ref(false)
+const addTestLoader = ref(false)
 const addTest = async () => {
   if (!addRequest.value) {
     addRequest.value = true
+    addTestLoader.value = true
     await createTest()
-    setTimeout(() => addRequest.value = false, 2000)
+    setTimeout(() => {
+      addRequest.value = false
+      addTestLoader.value = false
+    }, 2000)
   }
 }
+
 
 //action to star test
 const starTest = async (testId, state, index) => {
@@ -240,11 +244,12 @@ const slideUp = (el) => {
                 
                 <div class="static lg:absolute top-0 w-full h-full flex justify-center items-center">
                   <button
-                    @click="() => {addTest(); clickCreate = true}"
-                    class="bg-slate-100 rounded-full flex justify-center items-center px-3 py-0.5 my-2 cursor-pointer border border-transparent hover:border-neutral-200"
-                    :disabled="clickCreate"
+                    @click="addTest()"
+                    class="bg-slate-100 rounded-full flex justify-center items-center px-2.5 py-2.5 my-2 cursor-pointer border border-transparent hover:border-neutral-300"
+                    :disabled="addTestLoader"
                   >
-                    <span class="text-4xl text-slate-300 font-bold">+</span>
+                    <IconsPlus v-if="!addTestLoader" :color="'fill-slate-400'" :size="25" />
+                    <IconsLoader v-else class="animate-spin" :color="'fill-slate-400'" :size="25" />
                   </button>
                 </div>
               </div>
