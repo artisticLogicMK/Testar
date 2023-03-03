@@ -51,8 +51,9 @@ onMounted( async () => {
                     <p class="text-xl">Your score for this test is <span class="font-bold">{{props.pdata.score.toFixed(1)}}%</span></p>
 
                     <div v-if="props.tdata.see_pass">
-                        <p v-if="props.pdata.score >= props.tdata.pass_range" class="text-base">You <span>passed</span>, you scored not less than <span class="font-bold">{{props.tdata.pass_range}}%</span> which is needed to pass this test.</p>
-                        <p v-else class="text-base">You <span>failed</span>, you need not less than <span class="font-bold">{{props.tdata.pass_range}}%</span> to pass this test.</p>
+                        <p v-if="props.pdata.score >= props.tdata.pass_range" class="text-base">Congratulations! You've successfully passed the test with a score higher than the required passing percentage of <span class="font-bold">{{props.tdata.pass_range}}%</span>.</p>
+                        
+                        <p v-else class="text-base">Unfortunately, you didn't meet the minimum passing requirement of <span class="font-bold">{{props.tdata.pass_range}}%</span> for the test.</p>
                     </div>
 
                     
@@ -65,11 +66,11 @@ onMounted( async () => {
                     </div>
 
                     <div class="text-white/90 text-sm mt-2" x-data="{result:false,test:false}">
-                        <span x-on:click="result=true" class="copybtn underline cursor-pointer" :data-clipboard-text="url" x-text="result ? 'Result Copied' : 'Copy Result'"></span>
+                        <span x-on:click="result=true" class="copybtn underline cursor-pointer" :data-clipboard-text="url" x-text="result ? 'Link Copied' : 'Copy Link'"></span>
                         <span class="mx-2">|</span>
                         
-                        <span x-on:click="test=true" class="copybtn underline cursor-pointer" :data-clipboard-text="takeTestUrl+tdata.testLink" x-text="test ? 'Link Copied' : 'Test Link'"></span>
-                        <span class="mx-2">|</span>
+                        <span v-if="false" x-on:click="test=true" class="copybtn underline cursor-pointer" :data-clipboard-text="takeTestUrl+tdata.testLink" x-text="test ? 'Link Copied' : 'Test Link'"></span>
+                        <span v-if="false" class="mx-2">|</span>
 
                         <NuxtLink to="/" class="underline">Create your own test.</NuxtLink>
                     </div>

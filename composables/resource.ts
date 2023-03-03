@@ -25,13 +25,13 @@ export const spbStorageUrl = 'https://havyrmcezqkrsaqamtbl.supabase.co/storage/v
 
 export const takeTestUrl = env === 'prod' ? 'https://testar-app.vercel.app/taketest/test-' : 'localhost:3000/taketest/test-'
 
-export const slideInUpAnim = (el: HTMLElement, isSelf: boolean) => {
+export const slideInUpAnim = (el: HTMLElement, isSelf: boolean, dur: number = 1) => {
     let elType = isSelf ? el : el.children
     gsap.from(elType, {
         y: "+100",
         opacity: 0,
         delay: 0.5,
-        duration: 1,
+        duration: dur,
         stagger: 0.35,
         ease: "back.out(1.7)",
         clearProps: 'all'

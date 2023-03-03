@@ -27,7 +27,6 @@ onMounted(() => {
         //loader animation
         loader = gsap.timeline({onComplete: afterLoader, onReverseComplete: hideLoader})
             .to("#loadCon", {scale: 1, opacity: 1, display: "flex", duration: 2, ease: "elastic.out(1, 0.6)"})
-            .to(".bgItems", {scale: 1, duration: 2, ease: "elastic.out(1, 0.6)"}, "<")
             .to("#loadCon #inner1", {scale: 1, duration: 2, ease: "elastic.out(1, 0.6)"}, "-=1.5")
             .to("#loadCon #inner1", {borderWidth: "1px", duration: 1, ease: "power4.out"}, "-=1.5")
             .to("#loadCon #inner2", {scale: 1, opacity: "1", duration: 1, ease: "elastic.out(1, 0.6)"}, "-=1.5")

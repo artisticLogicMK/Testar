@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-5 relative z-20">
+    <div class="mb-5">
 
         <img src="~/assets/img/home-asset1.png" class="w-full">
         
@@ -8,10 +8,10 @@
             <div class="max-w-5xl mx-auto py-10">
 
                 <div>
-                    <div id="features">
+                    <div id="features" class="group">
                         <div class="cont">
                             <div class="icon">
-                                <IconsDashboard :color="'fill-white'" :size="20" />
+                                <IconsDashboard :color="'fill-cyan-700'" :size="20" />
                             </div>
                             <p class="title">User-Friendly Dashboard</p>
                             <p class="descri">Testar has a simple and intuitive dashboard and a clean, organized user interface, making it easy for users to create and administer tests without technical skills.</p>
@@ -23,7 +23,7 @@
                     <div id="features">
                         <div class="cont">
                             <div class="icon">
-                                <IconsSettings :color="'fill-white'" :size="20" />
+                                <IconsSettings :color="'fill-cyan-700'" :size="20" />
                             </div>
                             <p class="title">Customizable Settings</p>
                             <p class="descri">Testar allows users to customize their tests, including time limits, availability period, data collection, and other settings. This level of customization enables users to tailor their tests to their specific needs and create a more effective testing experience.</p>
@@ -35,7 +35,7 @@
                     <div id="features">
                         <div class="cont">
                             <div class="icon">
-                                <IconsShareCircle :color="'fill-white'" :size="20" />
+                                <IconsShareCircle :color="'fill-cyan-700'" :size="20" />
                             </div>
                             <p class="title">Test Sharing</p>
                             <p class="descri">Testar makes it easy to share tests with others via a link, enabling participants to take the test without the need for an account.</p>
@@ -47,7 +47,7 @@
                     <div id="features">
                         <div class="cont">
                             <div class="icon">
-                                <IconsDatabase :color="'fill-white'" :size="20" />
+                                <IconsDatabase :color="'fill-cyan-700'" :size="20" />
                             </div>
                             <p class="title">Automated Grading</p>
                             <p class="descri">Testar automatically grades questions, saving users time and effort in manual grading, and offers a great test-taking experience for participants.</p>
@@ -71,7 +71,7 @@
 #features .cont{@apply md2:mr-4}
 #features .cont .title{@apply text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-700 via-cyan-500 to-cyan-500}
 #features .cont .descri{@apply text-neutral-500 text-base md:text-lg}
-#features .cont .icon{@apply bg-cyan-700 rounded-md px-2.5 py-1.5 inline-block}
+#features .cont .icon{@apply border border-cyan-600 rounded-md px-2 py-1 hidden md:inline-block }
 #features .cont .icon svg{@apply -mt-1}
 
 #features img{@apply max-w-full sm:max-w-xl md2:max-w-md lg:max-w-lg border rounded-lg shadow-lg md:shadow-xl mt-3 md2:mt-0}

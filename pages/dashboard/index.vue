@@ -147,7 +147,7 @@ onMounted(async () => {
 
 //animations
 const slideUp = (el) => {
-  slideInUpAnim(el, false)
+  slideInUpAnim(el, false, 0.7)
 }
 </script>
 

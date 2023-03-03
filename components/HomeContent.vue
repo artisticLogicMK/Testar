@@ -45,7 +45,7 @@ const fadeIn = (el: HTMLElement) => {
                         <div class="w-full max-w-6xl mx-auto">
                             <img src="~/assets/img/rank.svg" class="bgItems w-56 absolute bottom-0 left-[30%] -mb-[55px] md:-mb-[15px] float2">
 
-                            <img src="~/assets/img/trangle.svg" class="bgItems hidden md:block w-44 absolute bottom-0 right-[6%] -mb-[15px] float2">
+                            <img src="~/assets/img/triangle.svg" class="bgItems hidden md:block w-44 absolute bottom-0 right-[6%] -mb-[15px] float2">
                         </div>
                     </div>
 
@@ -74,10 +74,7 @@ const fadeIn = (el: HTMLElement) => {
 
             </div>
         </transition>
-        
-        
-        
-        
+ 
 
         <AuthMain
             :authMode="mountAuthModal"
