@@ -1,5 +1,5 @@
 <script setup>
-const supabase = useSupabaseClient() //init spb client
+const supabase = useSupabaseClient() // init spb client
 
 const props = defineProps({
     pdata: Object,
@@ -13,7 +13,7 @@ const rank = ref(null)
 const url = ref('')
 
 onMounted( async () => {
-    //fetch participants
+    // fetch participants
     const { data, error } = await supabase.from('participants')
         .select('uuid, score')
         .eq('test_uuid', props.tdata.testId)
@@ -23,13 +23,13 @@ onMounted( async () => {
     participants.value = data
     let index = participants.value.findIndex(p => p.uuid == props.pdata.id)
 
-    //get definite rank here
+    // get definite rank here
     let set = new Set(participants.value.map(s => (s.score)))
     rank.value = Array.from(set).findIndex(s => s === props.pdata.score)
 
     url.value = window.location.href
 
-    //instantiate clipboardjs
+    // instantiate clipboardjs
     let clipboard = new ClipboardJS('.copybtn')
 })
 </script>
@@ -47,11 +47,22 @@ onMounted( async () => {
         <transition appear enter-active-class="ans an-zoomIn an-fast">
             <div v-if="participants" class="text-center text-white/90">
                 <div v-if="props.tdata.see_score">
-                    <h1 class="text-lg font-bold opacity-90" style="text-shadow: 0 2px 2px rgba(0,0,0,0.3)">{{props.tdata.testTitle}}</h1>
-                    <p class="text-xl">Your score for this test is <span class="font-bold">{{props.pdata.score.toFixed(1)}}%</span></p>
+                    <h1 class="text-lg font-bold opacity-90" style="text-shadow: 0 2px 2px rgba(0,0,0,0.3)">
+                        {{props.tdata.testTitle}}
+                    </h1>
+                    
+                    <p class="text-xl">Your score for this test is
+                        <span class="font-bold">{{props.pdata.score.toFixed(1)}}%</span>
+                    </p>
 
                     <div v-if="props.tdata.see_pass">
-                        <p v-if="props.pdata.score >= props.tdata.pass_range" class="text-base">Congratulations! You've successfully passed the test with a score higher than the required passing percentage of <span class="font-bold">{{props.tdata.pass_range}}%</span>.</p>
+                        <p
+                            v-if="props.pdata.score >= props.tdata.pass_range"
+                            class="text-base"
+                        >
+                            Congratulations! You've successfully passed the test with a score higher than the required passing percentage of
+                            <span class="font-bold">{{props.tdata.pass_range}}%</span>.
+                        </p>
                         
                         <p v-else class="text-base">Unfortunately, you didn't meet the minimum passing requirement of <span class="font-bold">{{props.tdata.pass_range}}%</span> for the test.</p>
                     </div>

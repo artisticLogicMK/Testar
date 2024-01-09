@@ -13,7 +13,6 @@ defineProps(['email'])
             <p>We've sent you a verification link at</p>
             <p class="text-dark-200">{{email}}</p>
             <p class="mt-3">Click on the link to complete your account setup.</p>
-
         </div>
     </div>
 </template>

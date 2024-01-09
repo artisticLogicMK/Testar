@@ -2,11 +2,12 @@
 const results = ref<any>(null)
 const openSearch = ref<boolean>(false)
 
-//perform
+// perform
 const search = async (val: string) => {
     if (val.length > 2) {
-        //perform search based on individual words in search string
+        // perform search based on individual words in search string
         let ar: string[] = []
+
         val.split(' ').forEach(word => {
             if(word !== '') ar.push("'"+word+"'")
         })
@@ -37,7 +38,12 @@ const search = async (val: string) => {
         x-bind:class="searchOpen ? 'scale-x-100' : 'scale-x-0 sm:scale-x-100'"
     >
         <IconsSearch :color="'fill-cyan-400 sm:fill-white/70'" :size="20" />
-        <input type="search" @input="search($event.target.value)" class="w-0 grow bg-transparent border-none text-neutral-500/80 sm:text-white/90 text-sm placeholder:text-white/90" placeholder="Search title of tests...">
+        <input
+            type="search"
+            @input="search($event.target.value)"
+            class="w-0 grow bg-transparent border-none text-neutral-500/80 sm:text-white/90 text-sm placeholder:text-white/90" placeholder="Search title of tests..."
+        >
+        
         <i
             class="la la-times text-2xl ml-1 sm:hidden cursor-pointer"
             x-on:click="searchOpen = false"

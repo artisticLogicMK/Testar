@@ -1,11 +1,11 @@
 <script setup>
-const userAuth = useUser() //get user data
+const userAuth = useUser() // get user data
 
 const alertData = ref({
     is: false, type: null, msg: null
 })
 
-const supabase = useSupabaseClient() //init spb client
+const supabase = useSupabaseClient() // init spb client
 
 const authMenu = ref(false)
 
@@ -22,7 +22,7 @@ const logout = async () => {
 
 
 onMounted(() => {
-    //instantiate clipboardjs
+    // instantiate clipboardjs
     let clipboard = new ClipboardJS('.copybtn')
     clipboard.on('success', function(e) {
         alertData.value = {
@@ -34,7 +34,7 @@ onMounted(() => {
 
     const internetOff = ref(false)
 
-    //check internet connection status
+    // check internet connection status
     setInterval(() => {
         if (window.navigator.onLine) {
              internetOff.value = false
@@ -56,6 +56,7 @@ onMounted(() => {
     })
 })
 </script>
+
 
 <template>
 <NuxtLayout name="bg-layout">
@@ -116,6 +117,7 @@ onMounted(() => {
 
 </NuxtLayout>
 </template>
+
 
 <style scoped>
 .authMenu div{@apply px-3 py-1 text-sm text-white border-b border-white/30 font-semibold }

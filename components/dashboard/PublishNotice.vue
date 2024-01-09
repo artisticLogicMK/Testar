@@ -1,7 +1,7 @@
 <script setup>
 const prop = defineProps({testId: Number})
 
-const supabase = useSupabaseClient() //init spb client
+const supabase = useSupabaseClient() // init spb client
 
 const publishing = ref(false)
 
@@ -29,6 +29,7 @@ onMounted(() => {
 })
 </script>
 
+
 <template>
     <div id="authOverlay" class="fixed z-30 left-0 top-0 h-full w-full flex items-end xsm:items-center justify-center py-3 px-2 overflow-y-auto bg-white/80 backdrop-blur-sm scale-y-0 -translate-x-full opacity-0 origin-center">
         <div id="fourth" class="bg-white/0 w-full xsm:max-w-md m-auto mb-0 sm:mb-auto p-2 xsm:p-3 border border-white/0 rounded-2xl shadow-sm">
@@ -45,6 +46,7 @@ onMounted(() => {
                         <IconsClose :color="'fill-neutral-400/80'" :size="30" />
                     </div>
                 </div>
+
                 <div id="third" class="relative scale-y-0 opacity-0 text-center p-5">
 
                     <IconsWarning :color="'fill-neutral-300/60'" :size="45" />
@@ -64,7 +66,3 @@ onMounted(() => {
         </div>
     </div>
 </template>
-
-<style>
-
-</style>

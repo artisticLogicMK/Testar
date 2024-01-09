@@ -3,18 +3,19 @@ definePageMeta({
     middleware: ['auth']
 })
 
-//get user data
+// get user data
 const user = useSupabaseUser()
 
 const mountHome = ref<boolean>(false)
 
 onMounted(() => {    
-    //if user has signed in
+    // if user has signed in
     watchEffect(() => {
         if (user.value) navigateTo('/dashboard')
     })
 })
 </script>
+
 
 <template>
     <NuxtLayout name="bg-layout">

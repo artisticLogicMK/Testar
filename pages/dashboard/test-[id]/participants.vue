@@ -5,8 +5,8 @@ definePageMeta({
   middleware: ['authenticated', 'test-exists']
 })
 
-const { id } = useRoute().params //get test id ftom param
-const supabase = useSupabaseClient() //init spb client
+const { id } = useRoute().params // get test id ftom param
+const supabase = useSupabaseClient() // init spb client
 
 const state = store()
 
@@ -19,7 +19,7 @@ const questionCount = ref(null)
 const participantInfo = ref(null)
 
 onBeforeMount( async () => {
-    //fetch participants
+    // fetch participants
     const { data, error } = await supabase.from('participants').select()
         .eq('test_uuid', id)
         .eq('finished', true)
@@ -27,11 +27,11 @@ onBeforeMount( async () => {
 
         participants.value = data
 
-        //get definite rank here
+        // get definite rank here
         let set = new Set(participants.value.map(s => (s.score)))
         rank.value = Array.from(set)
 
-        //get no of questions
+        // get no of questions
         const { count } = await supabase.from('questions').select('*', { count: 'exact' })
             .eq('test_id', id)
         questionCount.value = count
@@ -70,11 +70,15 @@ onBeforeMount( async () => {
                         <th>Info</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr v-for="p in participants" :key="p.id">
                         <td>
-                            <div class="text-sm text-neutral-400 font-bold">{{rank.findIndex(s => s === p.score) + 1}}</div>
+                            <div class="text-sm text-neutral-400 font-bold">
+                                {{rank.findIndex(s => s === p.score) + 1}}
+                            </div>
                         </td>
+
                         <td>{{moment(p.created_at).format('MMM Do YY, h:mma')}}</td>
 
                         <td>
@@ -82,7 +86,10 @@ onBeforeMount( async () => {
                         </td>
 
                         <td>
-                            <span v-if="Object.keys(p.answers.data).length === questionCount" class="text-green-500 text-xs border border-green-400 rounded-full px-2">Yes</span>
+                            <span
+                                v-if="Object.keys(p.answers.data).length === questionCount"
+                                class="text-green-500 text-xs border border-green-400 rounded-full px-2"
+                            >Yes</span>
                             <span v-else class="text-red-500 text-xs border border-red-400 rounded-full px-2">No</span>
                         </td>
 
@@ -93,7 +100,10 @@ onBeforeMount( async () => {
                 </tbody>
             </table>
 
-            <div v-if="participants.length < 1" class="text-neutral-300 text-2xl font-bold p-5 text-center">
+            <div
+                v-if="participants.length < 1"
+                class="text-neutral-300 text-2xl font-bold p-5 text-center"
+            >
                 No participants have taken this test yet.
             </div>
 
@@ -111,6 +121,7 @@ onBeforeMount( async () => {
         </transition>
     </NuxtLayout>
 </template>
+
 
 <style>
 .info p{@apply text-neutral-600 text-sm first:font-semibold first:text-neutral-400}

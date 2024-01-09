@@ -3,9 +3,9 @@ import {v4 as uuidv4} from 'uuid'
 
 const { id } = useRoute().params
 
-const supabase = useSupabaseClient() //init spb client
+const supabase = useSupabaseClient() // init spb client
 
-const userAuth = useUser() //user Auth data
+const userAuth = useUser() // user Auth data
 
 const test = ref(null)
 
@@ -19,14 +19,14 @@ const testLinkPrefix = takeTestUrl
 
 const alertData = ref({ is: false, type: null, msg: null })
 
-//action to copy the link of a test
+// action to copy the link of a test
 const copyLink = link => {
     if (copyTestLink(link)) {
         alertData.value = { is: true, type: 'success', msg: 'Link Copied!' }
     }
 }
 
-//action to star test
+// action to star test
 const starTest = async (testId, state) => {
   const { data, error } = await supabase.from('tests')
     .update({starred: state ? false : true})
@@ -39,7 +39,7 @@ const starTest = async (testId, state) => {
   }
 }
 
-//action to remove test
+// action to remove test
 const removeTest = async (testId) => {
   if (confirm("Really want to delete this test? \nAll test questions and participants data will be gone too.")) {
     const { data, error } = await supabase.from('tests').delete().select()
@@ -51,7 +51,7 @@ const removeTest = async (testId) => {
 }
 
 
-//create another copy of test
+// create another copy of test
 const makeCopy = async () => {
     makingCopy.value = true
 
@@ -80,7 +80,7 @@ const makeCopy = async () => {
         .select().single()
 
     if (testD) {
-        //fetch test questions
+        // fetch test questions
         const { data: questions, count } = await supabase.from('questions').select('*', { count: 'exact' })
             .eq('test_id', test.value.uuid)
             .eq('user_id', userAuth.value.id)
@@ -111,7 +111,7 @@ const closePublish = () => {
 }
 
 onMounted( async () => {
-    //fetch test data
+    // fetch test data
     const { data: result, error } = await supabase.from('tests').select()
         .eq('user_id', useUser().value.id)
         .eq('uuid', id)
@@ -119,12 +119,12 @@ onMounted( async () => {
 
     test.value = result
 
-    //get no of questions
+    // get no of questions
     const { count } = await supabase.from('questions').select('*', { count: 'exact' })
         .eq('test_id', id)
     state.questionCount.value = count
 
-    //get no of participants
+    // get no of participants
     const { count: pcount } = await supabase.from('participants')
         .select('*', { count: 'exact' })
         .eq('test_uuid', test.value.uuid)
@@ -134,6 +134,7 @@ onMounted( async () => {
 })
 
 </script>
+
 
 <template>
 <NuxtLayout name="dashboard-layout">
@@ -237,6 +238,7 @@ onMounted( async () => {
     <DashboardLoader v-else />
 </NuxtLayout>
 </template>
+
 
 <style>
 .testNav ul{@apply block sm:flex absolute top-full z-20 sm:static -mt-1 sm:mt-auto bg-white border rounded-md shadow-md sm:border-none sm:shadow-none origin-top duration-200}

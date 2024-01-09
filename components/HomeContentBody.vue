@@ -20,6 +20,18 @@
                         <img src="~/assets/img/feature_shots/dashboard.png">
                     </div>
 
+                    <div id="features" class="group">
+                        <div class="cont">
+                            <div class="icon">
+                                <IconsQuestionMark :color="'fill-cyan-700'" :size="20" />
+                            </div>
+                            <p class="title">Intuitive Testar Customizer</p>
+                            <p class="descri">Testar features a powerful and intuitive Test Customizer, allowing you to effortlessly create tailor-made tests and quizzes for your audience.</p>
+                        </div>
+                        
+                        <img src="~/assets/img/feature_shots/question.png">
+                    </div>
+
                     <div id="features">
                         <div class="cont">
                             <div class="icon">
@@ -55,6 +67,18 @@
                         
                         <img src="~/assets/img/feature_shots/grading.png">
                     </div>
+
+                    <div id="features">
+                        <div class="cont">
+                            <div class="icon">
+                                <IconsDatabase :color="'fill-cyan-700'" :size="20" />
+                            </div>
+                            <p class="title">Instant Results & Share</p>
+                            <p class="descri">After a test, Testar dynamically presents participants with their score, comparative ranking among peers, and the option to conveniently copy a shareable result link.</p>
+                        </div>
+                        
+                        <img src="~/assets/img/feature_shots/result.png">
+                    </div>
                 </div>
 
             </div>
@@ -67,11 +91,11 @@
 
 <style scoped>
 #features {@apply flex flex-col md2:flex-row items-center mb-14 md2:mb-28 last:mb-0}
-#features:nth-child(even) .cont {@apply md2:order-2 md2:mr-0 md2:ml-4}
-#features .cont{@apply md2:mr-4}
+#features:nth-child(even) .cont {@apply md2:order-2 md2:mr-0 md2:ml-6}
+#features .cont{@apply md2:mr-6}
 #features .cont .title{@apply text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-700 via-cyan-500 to-cyan-500}
 #features .cont .descri{@apply text-neutral-500 text-base md:text-lg}
-#features .cont .icon{@apply border border-cyan-600 rounded-md px-2 py-1 hidden md:inline-block }
+#features .cont .icon{@apply border border-cyan-600 rounded-md px-2 py-1 mb-2 hidden md:inline-block }
 #features .cont .icon svg{@apply -mt-1}
 
 #features img{@apply max-w-full sm:max-w-xl md2:max-w-md lg:max-w-lg border rounded-lg shadow-lg md:shadow-xl mt-3 md2:mt-0}

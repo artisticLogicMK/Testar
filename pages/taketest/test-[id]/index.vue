@@ -3,11 +3,11 @@ definePageMeta({
   middleware: ['test-exists-by-link']
 })
 
-const { id: testlink } = useRoute().params //get test link from param
+const { id: testlink } = useRoute().params // get test link from param
 
-const supabase = useSupabaseClient() //init spb client
+const supabase = useSupabaseClient() // init spb client
 
-const userAuth = useUser() //user Auth data
+const userAuth = useUser() // user Auth data
 
 const testInfo = ref(null)
 
@@ -27,14 +27,14 @@ const bookFlip = ref(false)
 
 const prefix = '/taketest/test-'+testlink+'/participant-'
 
-//create timestamp from test countdown time
+// create timestamp from test countdown time
 const makeCountdownTime = () => {
     let hour = testInfo.value.timeframe.hour ? (testInfo.value.timeframe.hour * 3600) * 1000 : 0
     let min = testInfo.value.timeframe.min ? (testInfo.value.timeframe.min * 60) * 1000 : 0
     return Date.now() + (hour+min) + 8000
 }
 
-//submit participant
+// submit participant
 const submit = async () => {
     const { data, error } = await supabase.from('participants')
         .insert({
@@ -53,7 +53,7 @@ const submit = async () => {
 
 onMounted( async () => {
     
-    //fetch test info
+    // fetch test info
     const { data: result, error } = await supabase.from('tests').select()
         .eq('link', testlink)
         .single()
@@ -70,7 +70,7 @@ onMounted( async () => {
             getInfos.forEach((info) => infos.value[info] = null)
 
 
-            //get no of questions
+            // get no of questions
             const { count, error:ce } = await supabase.from('questions').select('*', { count: 'exact' })
                 .eq('test_id', testInfo.value.uuid)
             questionsCount.value = count > 0 ? count : 0
@@ -89,6 +89,7 @@ const slideInUp = (el) => {
 }
 </script>
 
+
 <template>
 <Head>
     <Title>{{testInfo && testInfo.title ? testInfo.title : ''}} | Testar</Title>
@@ -96,22 +97,29 @@ const slideInUp = (el) => {
 
 <NuxtLayout name="bg-layout">
     <div class="text-center w-full py-3 mb-1">
-        <NuxtLink to="/"><img src="~/assets/img/logo.svg" class="w-24 sm:w-24 opacity-90 inline-block"></NuxtLink>
+        <NuxtLink to="/">
+            <img src="~/assets/img/logo.svg" class="w-24 sm:w-24 opacity-90 inline-block">
+        </NuxtLink>
     </div>
 
 
     <div v-if="testInfo" class="px-2 sm:px-3">
 
         <transition appear @enter="slideInUp">
-            <div v-if="isNotClosed" class="bg-white h-full w-full max-w-4xl mx-auto rounded-lg shadow-xl overflow-hidden">
+            <div v-if="isNotClosed" class="bg-white h-full w-full max-w-4xl mx-auto rounded-xl shadow-xl overflow-hidden">
 
                 <div class="flex flex-col md:flex-row items-center w-full pads">
                     <div
                         class="mr-2 w-full"
                         :class="{'md:max-w-[400px] md2:max-w-[450px] lg:max-w-[500px]': testInfo.cover}"
                     >
-                        <h1 class="text-dark-100/80 font-bold text-lg sm:text-2xl mb-2">{{testInfo.title}}</h1>
-                        <p class="text-neutral-600/90 text-base whitespace-pre-wrap">{{testInfo.description}}</p>
+                        <h1 class="text-dark-100/80 font-bold text-lg sm:text-2xl mb-2">
+                            {{testInfo.title}}
+                        </h1>
+                        <p class="text-neutral-600/90 text-sm sm:text-base whitespace-pre-wrap">
+                            {{testInfo.description}}
+                        </p>
+
                         <div class="flex flex-wrap mt-2">
 
                             <div
@@ -301,5 +309,5 @@ const slideInUp = (el) => {
 .overview{@apply text-dark-100/95 text-sm mr-3 mb-2 }
 .overview h1{@apply font-bold}
 
-.pads{@apply px-4 xsm:px-7 py-4}
+.pads{@apply px-5 xsm:px-7 py-5}
 </style>

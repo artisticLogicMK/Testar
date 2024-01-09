@@ -3,15 +3,15 @@ definePageMeta({
   middleware: ['authenticated', 'test-exists']
 })
 
-const { id: testId } = useRoute().params //get testId from param
+const { id: testId } = useRoute().params // get testId from param
 
-const supabase = useSupabaseClient() //init spb client
+const supabase = useSupabaseClient() // init spb client
 
-const userAuth = useUser() //user Auth data
+const userAuth = useUser() // user Auth data
 
 const test = ref(null)
 
-//participants info collection states
+// participants info collection states
 const infoBtns = ref(null)
 const details = ref([
     {type: 'name', icon: 'la-user'},
@@ -33,10 +33,10 @@ const customDetail = ref({
     required: null
 })
 
-const categories = testCategories //get test categories
+const categories = testCategories // get test categories
 
-//all on upload test cover
-const imageDisplay = ref(null) //image preview
+// all on upload test cover
+const imageDisplay = ref(null) // image preview
 const uploadLoader = ref(false)
 const imageMsg = ref(null)
 
@@ -44,16 +44,16 @@ const uploadCover = async image => {
     imageMsg.value = null
 
     if (image.size < 1050000 && (image.type === "image/png" || image.type === "image/jpeg" || image.type === "image/svg+xml")) {
-        uploadLoader.value = true//initialize loader
+        uploadLoader.value = true// initialize loader
 
-        //shown image preview
+        // shown image preview
         const reader = new FileReader
         reader.onload = async e => {
             imageDisplay.value = e.target.result
         }
         reader.readAsDataURL(image)
 
-        //upload to server
+        // upload to server
         const path = 'test_covers/'+test.value.uuid+'.png'
         const { data, error } = await supabase
             .storage
@@ -78,7 +78,7 @@ const uploadCover = async image => {
 
 
 onMounted( async () => {
-    //fetch the test data
+    // fetch the test data
     const { data: result, error } = await supabase.from('tests').select()
         .eq('user_id', useUser().value.id)
         .eq('uuid', testId)
@@ -87,7 +87,7 @@ onMounted( async () => {
         test.value = result
 
     
-    //and now... the climax; watch for change and update entire test..
+    // and now... the climax; watch for change and update entire test..
     watch(test.value, async () => {
         const { data, error } = await supabase.from('tests')
             .update({
@@ -112,13 +112,14 @@ onMounted( async () => {
     })
 
 
-    //set test cover to default image upload preview
+    // set test cover to default image upload preview
     imageDisplay.value =  storagePrefix+test.value.cover+'?r='+Math.random()
 
 })
 
 const storagePrefix = spbStorageUrl
 </script>
+
 
 <template>
   <Head>
@@ -223,6 +224,7 @@ const storagePrefix = spbStorageUrl
                             </option>
                         </select>
                     </div>
+
                     <div class="flex-1">
                         <p class="descri">Minute</p>
                         <select v-model="test.timeframe.min" class="w-full">
@@ -336,44 +338,8 @@ const storagePrefix = spbStorageUrl
                                 </div>
                             </div>
                         </button>
-
-                        <!--cancelled for next version
-                        <button
-                            v-if="false"
-                            x-on:click="addInfo = !addInfo"
-                            class="detailsBtns border-dashed border-neutral-700 bg-neutral-50"
-                        >
-                            <i class="la la-plus"></i> Add
-                        </button>
-                        -->
                     </div>
 
-                    <!--everything in this element was cancelled for next version
-                    <div x-show="addInfo" x-transition class="max-w-sm px-3 py-2 rounded-md border shadow-sm">
-                        <p class="text-sm text-neutral-500 font-bold mb-0.5">Add a custom information.</p>
-                        <input type="text" placeholder="Whats it called.." v-model="customDetail.name" class="w-full mb-2">
-                        <br/>
-                        <select placeholder="Type..." class="w-full mb-2" v-model="customDetail.fieldType">
-                            <option value="">Type</option>
-                            <option value="input">Input field (one line)</option>
-                            <option value="textarea">Text area (wider)</option>
-                        </select>
-
-                        <div class="text-sm text-neutral-700">
-                            <input type="radio" name="opt" :value="true" v-model="customDetail.required"> Is it required?
-                            <br/>
-                            <input type="radio" name="opt" :value="false" v-model="customDetail.required"> Is it optional?
-                        </div>
-
-                        <button class="bg-cyan-400 rounded-md text-sm font-bold text-white px-4 py-1.5 my-1.5"
-                            @click="() => {
-                            details.push({type: customDetail.name, custom: true})
-                            test.infos[customDetail.name] = { required: customDetail.required, fieldType: customDetail.fieldType}
-                            customDetail = {name:'',required:null,fieldType:''}
-                            }"
-                        >Add</button>
-                    </div>
-                    --->
                 </div>
             </div>
         </div>

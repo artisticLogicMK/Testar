@@ -5,9 +5,9 @@ definePageMeta({
   middleware: ['authenticated']
 })
 
-const supabase = useSupabaseClient() //init spb client
+const supabase = useSupabaseClient() // init spb client
 
-//get user data
+// get user data
 const userAuth = useUser()
 
 const dashToggles = ref({
@@ -29,11 +29,14 @@ const isFiltered = ref(false)
 
 const addRequest = ref(false)
 const addTestLoader = ref(false)
+
 const addTest = async () => {
   if (!addRequest.value) {
     addRequest.value = true
     addTestLoader.value = true
+
     await createTest()
+
     setTimeout(() => {
       addRequest.value = false
       addTestLoader.value = false
@@ -42,7 +45,7 @@ const addTest = async () => {
 }
 
 
-//action to star test
+// action to star test
 const starTest = async (testId, state, index) => {
   const { data, error } = await supabase.from('tests')
     .update({starred: state ? false : true})
@@ -56,19 +59,19 @@ const starTest = async (testId, state, index) => {
 }
 
 
-const categories = testCategories //get test categories
+const categories = testCategories // get test categories
 
 
-//action to load user tests
+// action to load user tests
 const loadTests = async (isAscendingOrder, filter = filters.value.type, value = filters.value.val) => {
 
-  ascendingOrder.value = isAscendingOrder //set fetch order
+  ascendingOrder.value = isAscendingOrder // set fetch order
   filters.value = {
     type: filter,
     val: value
-  } //set filter state
+  } // set filter state
 
-  tests.value = null //initialize loader
+  tests.value = null // initialize loader
   let pageSize = 15
 
   const {from, to} = getPagination(page.value, pageSize)
@@ -87,7 +90,7 @@ const loadTests = async (isAscendingOrder, filter = filters.value.type, value = 
 
   totalTests.value = count
 
-  //get needed info only
+  // get needed info only
   tests.value = testraw.length ? testraw.map(test => ({
     id: test.id,
     title: test.title,
@@ -109,7 +112,7 @@ const loadTests = async (isAscendingOrder, filter = filters.value.type, value = 
 }
 
 
-//action to remove test
+// action to remove test
 const removeTest = async (testId) => {
   if (confirm("Really want to delete this test?\nAll test questions and participants data will be removed too.")) {
     const { data, error } = await supabase.from('tests')
@@ -145,7 +148,7 @@ onMounted(async () => {
 })
 
 
-//animations
+// animations
 const slideUp = (el) => {
   slideInUpAnim(el, false, 0.7)
 }
@@ -182,6 +185,7 @@ const slideUp = (el) => {
                     <div @click="loadTests(false)" class="tbs">
                       <i class="la la-caret-up"></i>Newest
                     </div>
+
                     <div @click="loadTests(true)" class="tbs">
                       <i class="la la-caret-up"></i>Oldest
                     </div>
@@ -207,6 +211,7 @@ const slideUp = (el) => {
                     <div class="tbs" @click="loadTests(ascendingOrder, 'user_id', userAuth.id); page = 0">
                       <i class="la la-border-all"></i>All
                     </div>
+
                     <div class="tbs" @click="() => {
                       isFiltered = true
                       loadTests(ascendingOrder, 'starred', true); page = 0
@@ -240,7 +245,7 @@ const slideUp = (el) => {
             <div id="testGrid" class="xsm:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-between w-full mx-auto mt-5 px-1.5">
 
               <div class="relative flex justify-center items-center rounded-lg border-[3px] border-dashed hover:border-solid xsm:h-full mb-4 xsm:mb-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-full relative hidden lg:inline-block" viewBox="0 0 10 9"></svg>
+                <svg xmlns="http:// www.w3.org/2000/svg" xmlns:xlink="http:// www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-full relative hidden lg:inline-block" viewBox="0 0 10 9"></svg>
                 
                 <div class="static lg:absolute top-0 w-full h-full flex justify-center items-center">
                   <button
@@ -261,7 +266,7 @@ const slideUp = (el) => {
                 @click="openTest($event,test.uuid, test.published)"
                 class="relative h-full bg-white rounded-lg border box-border mb-4 xsm:mb-auto cursor-pointer shadow-sm hover:shadow-lg"
               >
-                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-full relative hidden lg:inline-block" viewBox="0 0 10 9"></svg>
+                  <svg xmlns="http:// www.w3.org/2000/svg" xmlns:xlink="http:// www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-full relative hidden lg:inline-block" viewBox="0 0 10 9"></svg>
 
                   <div class="flex flex-col justify-between w-full h-full static lg:absolute top-0 p-3 mh-3 tests">
                     <div class="flex items-center justify-end text-xs text-slate-500">
@@ -327,22 +332,6 @@ const slideUp = (el) => {
 
       </div>
     </transition>
-
-
-    <!--Not needed
-    <div v-if="tests === 'empty'" class="h-[75vh] flex items-center justify-center">
-      <div class="inline-flex flex-col items-center justify-center border-[3px] border-dashed p-8 rounded-lg text-sm">
-        <p class="text-neutral-500 mb-2">You haven't created any tests yet.</p>
-        <button
-          @click="addTest"
-          class="btnEffect bg-cyan-400 text-white font-semibold rounded-md px-3 py-1.5 disabled:bg-red-600"
-          :disabled="addRequest"
-        >
-          <i class="la la-plus"></i> New Test
-        </button>
-      </div>
-    </div>
-    -->
 
 
     <DashboardLoader v-if="!tests" />

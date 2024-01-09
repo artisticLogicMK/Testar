@@ -3,14 +3,14 @@ defineProps({
     authMode: String
 })
 
-//access supabase client
+// access supabase client
 const supabase = useSupabaseClient()
 
 
-//regex to remove unwanted texts from auth errors
+// regex to remove unwanted texts from auth errors
 const supabaseErrorTextRegex = /AuthApiError: |AuthRetryableFetchError: /g
 
-//auth form data
+// auth form data
 const authForm = ref({
     email: '',
     password: '',
@@ -20,11 +20,11 @@ const authForm = ref({
 })
 
 
-//sign up - create user
+// sign up - create user
 const signup = async () => {
-    authForm.value.isProcessing = true //indicate form load
+    authForm.value.isProcessing = true // indicate form load
 
-    //check if email exists
+    // check if email exists
     const { data: checkData, error: checkErr } = await supabase.from('registeredUsers').select()
     .eq('email', authForm.value.email)
 
@@ -35,13 +35,13 @@ const signup = async () => {
         })
         
         if (!error) {
-            //add user in registered table
+            // add user in registered table
             const { data: usrData, error: usrErr } = await supabase.from('registeredUsers')
                 .insert({email: authForm.value.email}).select().single()
             
             if (usrData) {
                 authForm.value.isError = false
-                authForm.value.isSuccess = true //if success, show email verification notice
+                authForm.value.isSuccess = true // if success, show email verification notice
             }
                 
         }
@@ -49,7 +49,7 @@ const signup = async () => {
             authForm.value.password = ''
             authForm.value.isSuccess = false
             authForm.value.isError = error.toString().replace(supabaseErrorTextRegex, '')
-            authForm.value.isProcessing = false //end form load
+            authForm.value.isProcessing = false // end form load
         }
     }
     else {
@@ -60,20 +60,20 @@ const signup = async () => {
 
 
 
-//login
+// login
 const login = async () => {
-    authForm.value.isProcessing = true //indicate form load
+    authForm.value.isProcessing = true // indicate form load
 
     const { data, error } = await supabase.auth.signInWithPassword({
         email: authForm.value.email,
         password: authForm.value.password
     })
 
-    //if login failed
+    // if login failed
     if (error) {
         authForm.value.password = ''
         authForm.value.isError = error.toString().replace(supabaseErrorTextRegex, '')
-        authForm.value.isProcessing = false //end form load
+        authForm.value.isProcessing = false // end form load
     }
 }
 
@@ -163,7 +163,9 @@ onMounted(() => {
                         />
 
                         <form @submit.prevent="() => authMode === 'signup' ? signup() : login()">
-                            <p class="text-neutral-500 text-cyan-600/90 text-sm mt-5 mb-1">Or {{authMode}} with email and password...</p>
+                            <p class="text-neutral-500 text-cyan-600/90 text-sm mt-5 mb-1">
+                                Or {{authMode}} with email and password...
+                            </p>
 
                             <div class="fields">
                                 <i class="la la-at"></i>
@@ -207,6 +209,7 @@ onMounted(() => {
         </div>
     </div>
 </template>
+
 
 <style>
 .fields{ @apply flex items-center w-full border border-dark-200/40 text-dark-200 rounded-md px-1 py-0.5 mb-3 }

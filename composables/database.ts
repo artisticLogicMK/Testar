@@ -19,7 +19,7 @@ export const createTest = async () => {
     }     
 }
 
-//pagination algorythm by https://github.com/silentworks
+// pagination algorythm by https:// github.com/silentworks
 export const getPagination = (page:number, size:number) => {
     const limit = size ? +size : 3
     const from = page ? page * limit : 0

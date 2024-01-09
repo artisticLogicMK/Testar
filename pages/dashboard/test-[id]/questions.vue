@@ -5,9 +5,9 @@ definePageMeta({
 
 const { id } = useRoute().params
 
-const supabase = useSupabaseClient() //init spb client
+const supabase = useSupabaseClient() // init spb client
 
-const userAuth = useUser() //user Auth data
+const userAuth = useUser() // user Auth data
 
 const test = ref(null)
 
@@ -17,11 +17,11 @@ const question = ref(null)
 
 const questionLoader = ref(false)
 
-const openQ = ref(false) //question lis nav toggle
+const openQ = ref(false) // question lis nav toggle
 
 const newBtn = ref(false)
 
-//image upld states
+// image upld states
 const imageMsg = ref(null)
 const uploadLoader = ref(false)
 const imageDisplay = ref(null)
@@ -32,7 +32,7 @@ const state = store()
 const createQuestion = async () => {
     if (questions.value && questions.value.length <= 49) {
         newBtn.value = true
-        questionLoader.value = true //init loading
+        questionLoader.value = true // init loading
 
         const { data, error } = await supabase.from('questions')
             .insert({
@@ -49,7 +49,7 @@ const createQuestion = async () => {
 
             questionLoader.value = false
 
-            state.questionCount.value = questions.value.length //update q count on tab
+            state.questionCount.value = questions.value.length // update q count on tab
 
             newBtn.value = false
 
@@ -62,9 +62,9 @@ const createQuestion = async () => {
 }
 
 
-//fetch single question data
+// fetch single question data
 const fetchQuestion = async (qid) => {
-    questionLoader.value = true //init loading
+    questionLoader.value = true // init loading
 
     const { data, error } = await supabase.from('questions')
         .select()
@@ -81,10 +81,10 @@ const fetchQuestion = async (qid) => {
 }
 
 
-//delete a question
+// delete a question
 const delQuestion = async (qid) => {
     if(confirm('Sure to delete this question?')) { 
-        questionLoader.value = true //init loading
+        questionLoader.value = true // init loading
 
         const { data, error } = await supabase.from('questions').delete()
             .eq('id', qid)
@@ -96,28 +96,28 @@ const delQuestion = async (qid) => {
             if (question.value && qid === question.value.id) question.value = null
             questions.value = questions.value.filter(q => q.id !== qid)
 
-            state.questionCount.value = questions.value.length //update q count on tab
+            state.questionCount.value = questions.value.length // update q count on tab
             questionLoader.value = false
         }
     }
 }
 
 
-//image upload
+// image upload
 const qImage = async image => {
     imageMsg.value = null
 
     if (image.size < 1050000 && (image.type === "image/png" || image.type === "image/jpeg" || image.type === "image/svg+xml")) {
-        uploadLoader.value = true//initialize loader
+        uploadLoader.value = true// initialize loader
 
-        //preview image
+        // preview image
         const reader = new FileReader
         reader.onload = async e => {
             imageDisplay.value = await e.target.result
         }
         reader.readAsDataURL(image)
 
-        //upload to server
+        // upload to server
         const path = 'question_images/question_images_'+question.value.uuid+'.png'
         const { data, error } = await supabase
             .storage
@@ -128,7 +128,7 @@ const qImage = async image => {
             })
 
         if (data) {
-            //to trigger change
+            // to trigger change
             question.value.data.image = data.path
             uploadLoader.value = false
             imageMsg.value = ''
@@ -140,7 +140,7 @@ const qImage = async image => {
 }
 
 onMounted( async () => {
-    //fetch test to indicate if is published or not
+    // fetch test to indicate if is published or not
     const { data: fetchtest } = await supabase.from('tests').select('uuid, published')
         .eq('uuid', id)
         .single()
@@ -148,7 +148,7 @@ onMounted( async () => {
     test.value = fetchtest
 
     if(fetchtest) {
-        //fetch all test questions
+        // fetch all test questions
         const { data: result } = await supabase.from('questions')
             .select('id, timestamp, data->text')
             .eq('user_id', userAuth.value.id)
@@ -158,7 +158,7 @@ onMounted( async () => {
         if (result) questions.value = result
 
 
-        //watch changes in current question and update
+        // watch changes in current question and update
         watch(() => question.value, async (newVal, oldVal) => {
         if (question.value) {
             const { data, error } = await supabase.from('questions')
@@ -169,7 +169,7 @@ onMounted( async () => {
                 .select().single()
                 
             if (data) {
-                //find n replace question text in list
+                // find n replace question text in list
                 const index = questions.value.findIndex(q => q.id === question.value.id)
                 if (index !== -1) questions.value[index].text = question.value.data.text.substring(0, 50)
             }
@@ -180,7 +180,7 @@ onMounted( async () => {
 })
 
 
-//input text for options
+// input text for options
 const qInputs = (el, data = null) => {
    if (data) question.value.data.options[data] = {type: 'text', data: el.target.value}
 
@@ -191,7 +191,7 @@ const qInputs = (el, data = null) => {
 
 const storagePrefix = spbStorageUrl
 
-//animations
+// animations
 const slideUp = (el) => {
   slideInUpAnim(el, false)
 }
@@ -243,6 +243,7 @@ const slideUpSelf = (el) => {
                             />
                         </div>
                     </div>
+
 
                     <transition appear @enter="slideUp">
                         <div v-if="questions && questions.length > 0">
@@ -343,7 +344,7 @@ const slideUpSelf = (el) => {
                                     class="bg-[length:100%_100%] bg-center h-fit w-fit rounded-md"
                                     :style="'background-image: url('+imageDisplay+')'"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-full" viewBox="0 0 10 6"></svg>
+                                    <svg xmlns="http:// www.w3.org/2000/svg" xmlns:xlink="http:// www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-full" viewBox="0 0 10 6"></svg>
                                 </div>
                             </div>
 
