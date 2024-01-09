@@ -71,7 +71,7 @@
                     <div id="features">
                         <div class="cont">
                             <div class="icon">
-                                <IconsDatabase :color="'fill-cyan-700'" :size="20" />
+                                <IconsCheck :color="'fill-cyan-700'" :size="20" />
                             </div>
                             <p class="title">Instant Results & Share</p>
                             <p class="descri">After a test, Testar dynamically presents participants with their score, comparative ranking among peers, and the option to conveniently copy a shareable result link.</p>
