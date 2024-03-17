@@ -25,7 +25,7 @@
                             <div class="icon">
                                 <IconsQuestionMark :color="'fill-cyan-700'" :size="20" />
                             </div>
-                            <p class="title">Intuitive Testar Customizer</p>
+                            <p class="title">Intuitive Test Customizer</p>
                             <p class="descri">Testar features a powerful and intuitive Test Customizer, allowing you to effortlessly create tailor-made tests and quizzes for your audience.</p>
                         </div>
                         
