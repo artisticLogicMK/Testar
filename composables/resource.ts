@@ -23,7 +23,7 @@ export const env = 'prod'
 
 export const spbStorageUrl = 'https://havyrmcezqkrsaqamtbl.supabase.co/storage/v1/object/public/testar/'
 
-export const takeTestUrl = env === 'prod' ? 'https://tstar.vercel.app/taketest/test-' : 'localhost:3000/taketest/test-'
+export const takeTestUrl = env === 'prod' ? 'https://testar-app.vercel.app/taketest/test-' : 'localhost:3000/taketest/test-'
 
 export const slideInUpAnim = (el: HTMLElement, isSelf: boolean, dur: number = 1) => {
     let elType = isSelf ? el : el.children
